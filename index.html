@@ -702,12 +702,10 @@
     <div id="potion-overlay"></div>
     <div id="codeOverlay">
         <div id="codeModal">
-            <!-- ALTERAÇÃO: Removido onclick -->
             <button id="closeCodeBtn">&times;</button>
             <h2 id="codeTitle">Código</h2>
             <input type="text" id="codeInput" placeholder="DIGITE O CÓDIGO" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '')">
             <p id="codeError"></p>
-            <!-- ALTERAÇÃO: Removido onclick -->
             <button id="confirmCodeBtn">Confirmar</button>
         </div>
     </div>
@@ -732,13 +730,11 @@
       <h2 class="screen-title">Escolha Sua Classe</h2>
       <h3 id="classPreviewTitle"></h3>
       <div class="class-selector">
-        <!-- ALTERAÇÃO: Removido onclick e adicionado data-attributes para identificar a classe -->
         <button id="classBtnMaestria" class="class-btn" style="--class-color:#9d4edd;" data-class-name="Maestria" data-class-color="#9d4edd"><svg viewBox="0 0 100 100"><path d="M50 12 C52 12 83.5 29.5 85.5 30.5 S97 64.5 95 65.5 S69.5 92 67.5 92 S34.5 92 32.5 92 S3 66.5 5 65.5 S16.5 31.5 14.5 30.5 S48 12 50 12 Z" /></svg></button>
         <button id="classBtnDesolacao" class="class-btn" style="--class-color:#ff477e;" data-class-name="Desolacao" data-class-color="#ff477e"><svg viewBox="0 0 100 100"><path d="M50 15 C52 15 85 48 85 50 S52 85 50 85 S15 52 15 50 S48 15 50 15 Z" /></svg></button>
         <button id="classBtnPerseveranca" class="class-btn" style="--class-color:#ff9e00;" data-class-name="Perseveranca" data-class-color="#ff9e00"><svg viewBox="0 0 100 100"><path d="M50 10 C52 10 87 29 89 30 S89 69 89 70 S52 90 50 90 S13 71 11 70 S11 31 11 30 S48 10 50 10 Z" /></svg></button>
       </div>
       <div id="classInfo">Selecione uma classe para ver seus detalhes.</div>
-      <!-- ALTERAÇÃO: Removido onclick -->
       <button id="confirmClassBtn" class="continue-btn" style="display:none; max-width: 300px;">Confirmar</button>
     </section>
 
@@ -760,7 +756,6 @@
       
       <div class="monster-area" id="monsterArea">
         <div id="damagePopupContainer"></div>
-        <!-- Inimigos PNG -->
         <img id="goblinImg" src="inimigos/goblin.png" class="enemy-svg" aria-hidden="true" />
         <img id="morcegoImg" src="inimigos/morcego.png" class="enemy-svg" aria-hidden="true" />
         <img id="golemImg" src="inimigos/golem.png" class="enemy-svg" aria-hidden="true" />
@@ -789,7 +784,6 @@
           <div class="hp-bar"><div id="playerInner" class="hp-inner player-hp"></div></div>
         </div>
         <div class="controls">
-          <!-- ALTERAÇÃO: Removido onclick de todos os botões de controle -->
           <button id="atkBtn" class="small-btn"><div style="z-index:1">ATACAR</div></button>
           <button id="shieldBtn" class="small-btn">
             <div class="fill shield-fill" id="shieldFill"></div>
@@ -809,7 +803,6 @@
     <section id="shopScreen" class="screen" aria-label="loja">
         <h2 class="screen-title">Entre Andares</h2>
         <div class="shop-tabs">
-            <!-- ALTERAÇÃO: Removido onclick -->
             <button id="shopTabBtn" class="tab-btn active">Loja</button>
             <button id="skillTabBtn" class="tab-btn">Habilidades</button>
         </div>
@@ -821,14 +814,12 @@
             <div class="shop-npc">
                 <h3>Bruxo Arcano</h3>
                 <div class="shop-items">
-                    <!-- ALTERAÇÃO: Removido onclick e adicionado ID para fácil acesso -->
                     <button class="btn shop-btn" id="buyPotionBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 1.63.51 3.14 1.38 4.44L5 22h14l-1.38-8.56C18.49 12.14 19 10.63 19 9c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5z M9 15h6v2H9z"/></svg><div class="btn-text">Comprar Poção <span class="btn-subtext" id="potionHealSubtext"></span></div><span class="price" id="buyPotionCost"></span></button>
                 </div>
             </div>
             <div class="shop-npc">
                 <h3>Ferreiro Mestre</h3>
                 <div class="shop-items">
-                    <!-- ALTERAÇÃO: Removido onclick e adicionado ID para fácil acesso -->
                     <button class="btn shop-btn" id="buyShieldBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 4h2v5h-2V5zm0 6h2v2h-2v-2z"/></svg><div class="btn-text">Restaurar Carga de Escudo</div><span class="price" id="buyShieldCost"></span></button>
                     <button class="btn shop-btn" id="buyUpgradeBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg><div class="btn-text">Melhorar Arma<span class="btn-subtext" id="upgradeDmgSubtext"></span></div><span class="price" id="buyUpgradeCost"></span></button>
                     <button class="btn shop-btn" id="buyArmorBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg><div class="btn-text">Melhorar Armadura <span class="btn-subtext">+1 de Defesa</span></div><span class="price" id="buyArmorCost"></span></button>
@@ -840,7 +831,6 @@
         <div id="skillTab" class="skill-container" style="display:none;">
             <div class="skill-items"></div>
         </div>
-        <!-- ALTERAÇÃO: Removido onclick -->
         <button id="nextFloorBtn" class="continue-btn">Próximo Andar &rarr;</button>
     </section>
 
@@ -867,7 +857,6 @@
 <script>
 // --- CORE WEB AUDIO ENGINE (MUSIC & SFX) ---
 
-// ALTERAÇÃO: Unificar o AudioContext para SFX e Música
 let audioCtx;
 const audioState = {};
 
@@ -878,7 +867,6 @@ const NOTE_FREQUENCIES = {
     'C5': 523.25, 'Db5': 554.37, 'D5': 587.33, 'Eb5': 622.25, 'E5': 659.25, 'F5': 698.46, 'Gb5': 739.99, 'G5': 783.99, 'Ab5': 830.61, 'A5': 880.00, 'Bb5': 932.33, 'B5': 987.77,
 };
 
-// ALTERAÇÃO: Função de inicialização de áudio para ser chamada no primeiro clique
 function initAudio() {
     if (!audioCtx) {
         audioCtx = new (window.AudioContext || window.webkitAudioContext)();
@@ -897,9 +885,9 @@ function playNote(ctx, type, freq, startTime, duration, volume = 0.5) {
     osc.frequency.setValueAtTime(freq, startTime);
     
     gain.gain.setValueAtTime(0, startTime);
-    gain.gain.linearRampToValueAtTime(volume, startTime + 0.02); // Fast Attack
-    gain.gain.exponentialRampToValueAtTime(volume * 0.8, startTime + duration * 0.7); // Decay/Sustain
-    gain.gain.linearRampToValueAtTime(0, startTime + duration); // Release
+    gain.gain.linearRampToValueAtTime(volume, startTime + 0.02);
+    gain.gain.exponentialRampToValueAtTime(volume * 0.8, startTime + duration * 0.7);
+    gain.gain.linearRampToValueAtTime(0, startTime + duration);
 
     osc.connect(gain).connect(ctx.destination);
     osc.start(startTime);
@@ -939,15 +927,18 @@ function playPercussion(ctx, type, startTime, volume = 0.8) {
     noise.stop(startTime + duration);
 }
 
-
-function createSequencer(ctx, bpm, tracks) {
-    if (!ctx) return; // ALTERAÇÃO: Prevenção de erro se o audioCtx não estiver pronto
+// ALTERAÇÃO FINAL: O sequenciador agora aceita e verifica uma "geração"
+function createSequencer(ctx, bpm, tracks, generation) {
+    if (!ctx) return;
     const totalBeats = tracks[0].notes.reduce((sum, note) => sum + note.d, 0);
     const beatDuration = 60 / bpm;
     let schedulerTime = ctx.currentTime + 0.1;
     
     const loop = () => {
-        if (!musicController.currentTrack || !audioState[musicController.currentTrack]?.isPlaying) return; // ALTERAÇÃO: Checa se a música ainda deve tocar
+        // Se a geração da música mudou, este loop é obsoleto e deve parar.
+        if (musicController.generation !== generation) {
+            return;
+        }
         
         const loopEndTime = schedulerTime + totalBeats * beatDuration;
         
@@ -966,203 +957,135 @@ function createSequencer(ctx, bpm, tracks) {
         }
         
         const nextLoopDelay = (loopEndTime - ctx.currentTime) * 1000;
-        if (musicController.currentTrack && audioState[musicController.currentTrack]) {
-            audioState[musicController.currentTrack].timeoutId = setTimeout(loop, nextLoopDelay);
+        if (audioState[musicController.currentTrack]) {
+             audioState[musicController.currentTrack].timeoutId = setTimeout(loop, nextLoopDelay);
         }
     };
     
     loop();
 }
 
-// --- COMPOSITIONS ---
+// --- COMPOSIÇÕES ---
+// ALTERAÇÃO FINAL: Todas as composições agora passam a geração para o sequenciador
 
-function composeTheme(ctx) { // Main Theme
+function composeTheme(ctx, generation) { 
     const bpm = 125;
     const tracks = [
-        // Bassline
-        { type: 'square', volume: 0.15, notes: [
-            // Verse
-            {n: 'C3', d: 4}, {n: 'G2', d: 4}, {n: 'A2', d: 4}, {n: 'F2', d: 4},
-            // Chorus
-            {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'F2', d: 2},
-            {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'E2', d: 2},
-        ]},
-        // Harmony Pad
-        { type: 'triangle', volume: 0.08, notes: [
-            // Verse
-            {n: 'E4', d: 4}, {n: 'B3', d: 4}, {n: 'C4', d: 4}, {n: 'A3', d: 4},
-            // Chorus
-            {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'E4', d: 2}, {n: 'C4', d: 2},
-            {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'C4', d: 2}, {n: 'B3', d: 2},
-        ]},
-        // Main Melody
-        { type: 'sawtooth', volume: 0.18, notes: [
-            // Intro
-            {d: 4},
-            // Verse
-            {d: 1}, {n: 'C4', d: 1}, {n: 'E4', d: 1}, {n: 'G4', d: 1},
-            {d: 1}, {n: 'G4', d: 1}, {n: 'A4', d: 1}, {n: 'G4', d: 1},
-            {d: 1}, {n: 'A4', d: 1}, {n: 'C5', d: 1}, {n: 'B4', d: 1},
-            {d: 1}, {n: 'A4', d: 2}, {d: 1},
-            // Chorus (Refrain)
-            {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1},
-            {n: 'F5', d: 1.5}, {n: 'E5', d: 0.5}, {n: 'D5', d: 2},
-            {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1},
-            {n: 'E5', d: 1.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 2},
-        ]},
+        { type: 'square', volume: 0.15, notes: [ {n: 'C3', d: 4}, {n: 'G2', d: 4}, {n: 'A2', d: 4}, {n: 'F2', d: 4}, {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'F2', d: 2}, {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'E2', d: 2}, ]},
+        { type: 'triangle', volume: 0.08, notes: [ {n: 'E4', d: 4}, {n: 'B3', d: 4}, {n: 'C4', d: 4}, {n: 'A3', d: 4}, {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'E4', d: 2}, {n: 'C4', d: 2}, {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'C4', d: 2}, {n: 'B3', d: 2}, ]},
+        { type: 'sawtooth', volume: 0.18, notes: [ {d: 4}, {d: 1}, {n: 'C4', d: 1}, {n: 'E4', d: 1}, {n: 'G4', d: 1}, {d: 1}, {n: 'G4', d: 1}, {n: 'A4', d: 1}, {n: 'G4', d: 1}, {d: 1}, {n: 'A4', d: 1}, {n: 'C5', d: 1}, {n: 'B4', d: 1}, {d: 1}, {n: 'A4', d: 2}, {d: 1}, {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 1.5}, {n: 'E5', d: 0.5}, {n: 'D5', d: 2}, {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1}, {n: 'E5', d: 1.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 2}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-function composeMenu(ctx) { // Menu Music
+function composeMenu(ctx, generation) {
     const bpm = 70;
     const tracks = [
-        // Arpeggio (Harp-like)
-        { type: 'triangle', volume: 0.2, notes: [
-            {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'E4', d: 0.5},
-            {n: 'G3', d: 0.5}, {n: 'B3', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'B3', d: 0.5},
-            {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'A4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'C4', d: 0.5},
-            {n: 'F3', d: 0.5}, {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'F4', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'A3', d: 0.5},
-        ]},
-        // Melody (Flute-like)
-        { type: 'sine', volume: 0.25, notes: [
-             {d: 6},
-             {n: 'C5', d: 3}, {n: 'A4', d: 3},
-             {d: 6},
-             {n: 'G4', d: 3}, {n: 'E4', d: 3},
-        ]},
+        { type: 'triangle', volume: 0.2, notes: [ {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'G3', d: 0.5}, {n: 'B3', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'B3', d: 0.5}, {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'A4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'F3', d: 0.5}, {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'F4', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'A3', d: 0.5}, ]},
+        { type: 'sine', volume: 0.25, notes: [ {d: 6}, {n: 'C5', d: 3}, {n: 'A4', d: 3}, {d: 6}, {n: 'G4', d: 3}, {n: 'E4', d: 3}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-function composeBoss1(ctx) { // Arcanjo
+function composeBoss1(ctx, generation) {
     const bpm = 130;
     const tracks = [
         { type: 'percussion', volume: 0.5, notes: [ {p: 'kick', d: 1}, {d:1}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5} ]},
         { type: 'square', volume: 0.15, notes: [ {n: 'C3', d: 4}, {n: 'Ab2', d: 4}, {n: 'F2', d: 4}, {n: 'G2', d: 4} ]},
-        { type: 'sawtooth', volume: 0.2, notes: [
-            {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1},
-            {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 2},
-            {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1},
-            {n: 'D5', d: 2}, {n: 'C5', d: 2},
-        ]},
+        { type: 'sawtooth', volume: 0.2, notes: [ {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1}, {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 2}, {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1}, {n: 'D5', d: 2}, {n: 'C5', d: 2}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-function composeBoss2(ctx) { // Arcanjo Alado
+function composeBoss2(ctx, generation) {
     const bpm = 155;
      const tracks = [
         { type: 'percussion', volume: 0.55, notes: [ {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1} ]},
         { type: 'square', volume: 0.18, notes: [ {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'F2', d: 2}, {n: 'G2', d: 2} ]},
-        { type: 'sawtooth', volume: 0.2, notes: [
-            {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5},
-            {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'F5', d: 1},
-            {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5},
-            {n: 'D5', d: 1}, {n: 'C5', d: 1},
-        ]},
+        { type: 'sawtooth', volume: 0.2, notes: [ {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'F5', d: 1}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'D5', d: 1}, {n: 'C5', d: 1}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-function composeBoss3(ctx) { // Diabo
+function composeBoss3(ctx, generation) {
     const bpm = 145;
     const tracks = [
-        // Percussion with changing rhythm
-        { type: 'percussion', volume: 0.6, notes: [
-            // Phase 1: Ominous start
-            {p: 'kick', d: 4}, {d: 4}, {p: 'kick', d: 4}, {d: 4},
-            // Phase 2: Refrain (Full battle)
-            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
-            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
-            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
-            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
-            // Phase 3: Bridge (Tense break)
-            {d: 16}
-        ]},
-        // Bassline
-        { type: 'square', volume: 0.2, notes: [
-            // Phase 1
-            {n: 'C2', d: 8}, {n: 'Gb2', d: 8},
-            // Phase 2
-            {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2},
-            {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2},
-            // Phase 3
-            {n: 'B2', d: 8}, {n: 'F2', d: 8},
-        ]},
-        // Melody
-        { type: 'sawtooth', volume: 0.2, notes: [
-            // Phase 1
-            {d: 4}, {n: 'Db4', d: 2}, {n: 'C4', d: 2}, {d: 8},
-            // Phase 2 (Refrain)
-            {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2},
-            {n: 'Gb5', d: 1}, {n: 'Db5', d: 1}, {n: 'C5', d: 2},
-            {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2},
-            {n: 'F5', d: 1}, {n: 'G5', d: 1}, {n: 'Ab5', d: 2},
-            // Phase 3
-            {d: 4}, {n: 'A4', d: 2}, {n: 'Bb4', d: 2}, {d: 8},
-        ]}
+        { type: 'percussion', volume: 0.6, notes: [ {p: 'kick', d: 4}, {d: 4}, {p: 'kick', d: 4}, {d: 4}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {d: 16} ]},
+        { type: 'square', volume: 0.2, notes: [ {n: 'C2', d: 8}, {n: 'Gb2', d: 8}, {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2}, {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2}, {n: 'B2', d: 8}, {n: 'F2', d: 8}, ]},
+        { type: 'sawtooth', volume: 0.2, notes: [ {d: 4}, {n: 'Db4', d: 2}, {n: 'C4', d: 2}, {d: 8}, {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2}, {n: 'Gb5', d: 1}, {n: 'Db5', d: 1}, {n: 'C5', d: 2}, {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2}, {n: 'F5', d: 1}, {n: 'G5', d: 1}, {n: 'Ab5', d: 2}, {d: 4}, {n: 'A4', d: 2}, {n: 'Bb4', d: 2}, {d: 8}, ]}
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-// --- NOVAS COMPOSIÇÕES DE BATALHA (SOMBRIAS) ---
-
-function composeBattleEasy(ctx) {
+function composeBattleEasy(ctx, generation) {
     const bpm = 120;
     const tracks = [
         { type: 'percussion', volume: 0.45, notes: [ {p: 'kick', d: 1}, {d: 1}, {p: 'snare', d: 1}, {d: 1} ]},
-        { type: 'square', volume: 0.15, notes: [
-            // Verse (Fm - Db)
-            {n: 'F2', d: 4}, {n: 'Db2', d: 4},
-            // Chorus (Ab - C)
-            {n: 'Ab2', d: 4}, {n: 'C2', d: 4},
-        ]},
-        { type: 'sawtooth', volume: 0.18, notes: [
-             // Verse
-            {n: 'F4', d: 1.5}, {n: 'Eb4', d: 0.5}, {n: 'C4', d: 2},
-            {n: 'Db4', d: 1.5}, {n: 'C4', d: 0.5}, {n: 'Ab3', d: 2},
-             // Chorus
-            {n: 'Ab4', d: 1}, {n: 'G4', d: 1}, {n: 'Ab4', d: 1}, {n: 'F4', d: 1},
-            {n: 'G4', d: 2}, {n: 'C4', d: 2},
-        ]},
+        { type: 'square', volume: 0.15, notes: [ {n: 'F2', d: 4}, {n: 'Db2', d: 4}, {n: 'Ab2', d: 4}, {n: 'C2', d: 4}, ]},
+        { type: 'sawtooth', volume: 0.18, notes: [ {n: 'F4', d: 1.5}, {n: 'Eb4', d: 0.5}, {n: 'C4', d: 2}, {n: 'Db4', d: 1.5}, {n: 'C4', d: 0.5}, {n: 'Ab3', d: 2}, {n: 'Ab4', d: 1}, {n: 'G4', d: 1}, {n: 'Ab4', d: 1}, {n: 'F4', d: 1}, {n: 'G4', d: 2}, {n: 'C4', d: 2}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-function composeBattleMedium(ctx) {
+function composeBattleMedium(ctx, generation) {
     const bpm = 135;
     const tracks = [
         { type: 'percussion', volume: 0.5, notes: [ {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {d:0.5}, {p: 'snare', d: 1} ]},
         { type: 'square', volume: 0.18, notes: [ {n: 'G2', d: 1}, {n: 'G2', d: 1}, {n: 'Eb3', d: 1}, {n: 'F3', d: 1} ]},
-        { type: 'sawtooth', volume: 0.2, notes: [
-            // Verse
-            {n: 'G4', d: 1}, {n: 'Bb4', d: 1}, {n: 'C5', d: 1}, {n: 'G4', d: 1},
-            // Chorus
-            {n: 'F5', d: 1.5}, {n: 'Eb5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 0.5},
-            {n: 'Bb4', d: 1}, {n: 'G4', d: 1},
-        ]},
+        { type: 'sawtooth', volume: 0.2, notes: [ {n: 'G4', d: 1}, {n: 'Bb4', d: 1}, {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 1.5}, {n: 'Eb5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'Bb4', d: 1}, {n: 'G4', d: 1}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
 
-function composeBattleHard(ctx) {
+function composeBattleHard(ctx, generation) {
     const bpm = 150;
     const tracks = [
         { type: 'percussion', volume: 0.55, notes: [ {p: 'kick', d: 0.5}, {d:0.5}, {p: 'snare', d: 0.5}, {d:0.5}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1} ]},
-        { type: 'sawtooth', volume: 0.2, notes: [ // Bass Ostinato
-            {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'E2', d: 0.5},
-            {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'G2', d: 0.5},
-        ]},
-        { type: 'square', volume: 0.22, notes: [
-            // Verse
-            {n: 'A4', d: 0.5}, {d:0.5}, {n: 'E5', d: 0.5}, {d:0.5}, {n: 'D5', d: 0.5}, {d:0.5}, {n: 'C5', d: 0.5},
-            // Chorus
-            {n: 'F5', d: 1}, {n: 'E5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'E5', d: 1},
-        ]},
+        { type: 'sawtooth', volume: 0.2, notes: [ {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'E2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'G2', d: 0.5}, ]},
+        { type: 'square', volume: 0.22, notes: [ {n: 'A4', d: 0.5}, {d:0.5}, {n: 'E5', d: 0.5}, {d:0.5}, {n: 'D5', d: 0.5}, {d:0.5}, {n: 'C5', d: 0.5}, {n: 'F5', d: 1}, {n: 'E5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'E5', d: 1}, ]},
     ];
-    createSequencer(ctx, bpm, tracks);
+    createSequencer(ctx, bpm, tracks, generation);
 }
+
+</script>
+
+<script>
+/* --------------- GAME LOGIC STARTS HERE --------------- */
+
+// ALTERAÇÃO FINAL: O musicController foi completamente refatorado para usar o sistema de geração.
+const musicController = {
+    currentTrack: null,
+    generation: 0, // Contador para invalidar loops de música antigos.
+
+    play(trackId) {
+        if (!audioCtx) return; 
+
+        if (this.currentTrack === trackId && audioState[trackId]?.isPlaying) {
+            return;
+        }
+
+        this.stop(); // Para a música atual e avança a geração.
+
+        if (compositionMap[trackId]) {
+            this.currentTrack = trackId;
+            audioState[trackId] = { isPlaying: true, timeoutId: null };
+            // Inicia a nova música com a nova geração.
+            compositionMap[trackId](audioCtx, this.generation);
+        }
+    },
+
+    stop() {
+        // A maneira mais robusta de parar a música: invalidar a geração atual.
+        // Qualquer loop `setTimeout` da geração anterior irá parar por conta própria.
+        this.generation++;
+
+        if (this.currentTrack && audioState[this.currentTrack]) {
+            clearTimeout(audioState[this.currentTrack].timeoutId);
+            audioState[this.currentTrack].isPlaying = false;
+        }
+        this.currentTrack = null;
+    }
+};
 
 const compositionMap = {
     'theme': composeTheme,
@@ -1174,37 +1097,6 @@ const compositionMap = {
     'boss2': composeBoss2,
     'boss3': composeBoss3,
 };
-
-// --- MUSIC CONTROLLER ---
-const musicController = {
-    currentTrack: null,
-    play(trackId) {
-        if (!audioCtx) return; // ALTERAÇÃO: Não toca se o áudio não foi iniciado
-        if (this.currentTrack === trackId && audioState[trackId]?.isPlaying) {
-            return;
-        }
-        this.stop();
-        if (compositionMap[trackId]) {
-            // ALTERAÇÃO: Usa o audioCtx global em vez de criar um novo
-            audioState[trackId] = { isPlaying: true, timeoutId: null };
-            compositionMap[trackId](audioCtx);
-            this.currentTrack = trackId;
-        }
-    },
-    stop() {
-        if (this.currentTrack && audioState[this.currentTrack]?.isPlaying) {
-            clearTimeout(audioState[this.currentTrack].timeoutId);
-            // ALTERAÇÃO: Não fecha mais o context, pois ele é compartilhado. Apenas para a reprodução.
-            audioState[this.currentTrack].isPlaying = false;
-        }
-        this.currentTrack = null;
-    }
-};
-
-</script>
-
-<script>
-/* --------------- GAME LOGIC STARTS HERE --------------- */
 
 const initialState = {
   player: { hp:120, maxHp:120, defense:0, shieldMax:2, shield:2, potions:2, dmg:14, crit:10, critMultiplier: 1.5, class:null, dmgUpgrade:0, armorUpgrade: 0, potionUpgrade: 0, skillPoints: 1, skills: {}, buff: { type: null, turns: 0 }, storyFlags: {}, encounteredNPCs: [], isInvincible: false, hasHitKill: false },
@@ -1225,7 +1117,6 @@ let selectedClass = { name: null, color: null };
 const classColors = { Maestria: '#9d4edd', Desolacao: '#ff477e', Perseveranca: '#ff9e00' };
 let continueCallback = () => {};
 
-// --- OPTIMIZATION: DOM Element & UI State Caching ---
 const uiElements = {};
 const uiCache = {};
 function cacheDOMElements() {
@@ -1239,7 +1130,6 @@ function cacheDOMElements() {
     ];
     ids.forEach(id => uiElements[id] = document.getElementById(id));
     
-    // ALTERAÇÃO: Adicionando mais botões ao cache para event listeners
     uiElements.shopButtons = {
         potion: document.getElementById('buyPotionBtn'),
         shield: document.getElementById('buyShieldBtn'),
@@ -1256,9 +1146,6 @@ function cacheDOMElements() {
     uiElements.classButtons = document.querySelectorAll('.class-btn');
 }
 
-
-/* --- AUDIO OPTIMIZATION: Refactored Sound System --- */
-// ALTERAÇÃO: Removido sfxAudioCtx, pois agora usamos o audioCtx global
 function playTone({ freq, freqEnd, duration, type, gainValue, rampType = 'exponential' }, startTime = 0) {
     if (!audioCtx || audioCtx.state === 'suspended') return;
     const now = audioCtx.currentTime;
@@ -1407,8 +1294,6 @@ const repeatableEvents = [
     { title: "O Espelho da Alma", text: "Um espelho ornamentado reflete uma versão sombria de você.", choices: [ { text: "Quebrar o espelho", cb: () => { if(!state.player.isInvincible) state.player.hp -= 10; state.player.crit += 2; return "Fragmentos cortam você, mas a imagem sombria se foi. (-10 HP, +2% Crítico)"; } }, { text: "Encarar seu reflexo", cb: () => { state.player.defense++; return "Você aceita suas falhas e se torna mais resiliente. (+1 Defesa)"; } } ] },
 ];
 
-
-/* ----- Game State Management ----- */
 function saveGame() { localStorage.setItem('battleGameSave', JSON.stringify(state)); }
 function loadGame() {
     try {
@@ -1459,7 +1344,6 @@ function checkForSave() {
 }
 function refreshAllUIs() { refreshUI(); updateShopUI(); updateSkillUI(); }
 
-/* ----- Core Functions ----- */
 function setBodyBackground(screenName) {
     let background;
     const isVictory = localStorage.getItem('battleGameVictory');
@@ -1487,7 +1371,6 @@ function showScreen(screenId, doSave = true) {
     if(screen) screen.classList.add('active');
     setBodyBackground(screenId);
 
-    // --- Music Control based on Screen ---
     switch(screenId) {
         case 'menuScreen':
             musicController.play('theme');
@@ -1498,13 +1381,11 @@ function showScreen(screenId, doSave = true) {
             musicController.play('menu');
             break;
         case 'battleScreen':
-            // This is handled by spawnEnemy to choose the right track
             break;
         case 'gameOverScreen':
             musicController.stop();
             break;
     }
-
 
     if (doSave) {
         state.currentScreen = screenId;
@@ -1618,7 +1499,6 @@ function spawnEnemy(enemyId){
         state.enemy.dmg = enemyTemplate.baseDmg;
     }
     
-    // --- BATTLE MUSIC SELECTION ---
     if (state.enemy.tier === 'Boss') {
         if (state.level === 30) musicController.play('boss1');
         else if (state.level === 60 && state.enemy.nextPhase) musicController.play('boss2');
@@ -1630,7 +1510,6 @@ function spawnEnemy(enemyId){
             case 'Difícil': musicController.play('battleHard'); break;
         }
     }
-
 
     const enemyHpBar = uiElements.enemyInner;
     enemyHpBar.classList.remove('devil-hp');
@@ -2237,11 +2116,10 @@ function submitCode() {
     }
 }
 
-// ALTERAÇÃO: Nova função para centralizar todos os event listeners
 function bindEventListeners() {
     const menuScreen = document.getElementById('menuScreen');
     menuScreen.addEventListener('click', (event) => {
-        initAudio(); // Ação mais importante: Inicia o áudio no primeiro clique do usuário
+        initAudio();
 
         if (event.target.closest('.top-left-info')) {
             openCodeModal();
@@ -2265,7 +2143,6 @@ function bindEventListeners() {
         }
     });
 
-    // Botões de classe
     uiElements.classButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             previewClass(btn.dataset.className, btn.dataset.classColor, btn);
@@ -2274,17 +2151,14 @@ function bindEventListeners() {
     });
     uiElements.confirmClassBtn.addEventListener('click', confirmClass);
 
-    // Controles de batalha
     uiElements.atkBtn.addEventListener('click', playerAttack);
     uiElements.shieldBtn.addEventListener('click', playerShield);
     uiElements.potionBtn.addEventListener('click', playerPotion);
     uiElements.magicBtn.addEventListener('click', playerMagic);
 
-    // Tabs da loja
     uiElements.shopTabBtn.addEventListener('click', () => { showTab('shopTab'); playSound('click'); });
     uiElements.skillTabBtn.addEventListener('click', () => { showTab('skillTab'); playSound('click'); });
 
-    // Botões da loja
     uiElements.shopButtons.potion.addEventListener('click', (e) => buyItem('potion', e.currentTarget));
     uiElements.shopButtons.shield.addEventListener('click', (e) => buyItem('shield', e.currentTarget));
     uiElements.shopButtons.upgrade.addEventListener('click', (e) => buyItem('upgrade', e.currentTarget));
@@ -2292,17 +2166,15 @@ function bindEventListeners() {
     uiElements.shopButtons.maxShield.addEventListener('click', (e) => buyItem('maxShield', e.currentTarget));
     uiElements.shopButtons.potionUpgrade.addEventListener('click', (e) => buyItem('potionUpgrade', e.currentTarget));
     
-    // Botão de continuar
     uiElements.nextFloorBtn.addEventListener('click', goToNextBattle);
     
-    // Modal de código
     uiElements.closeCodeBtn.addEventListener('click', closeCodeModal);
     uiElements.confirmCodeBtn.addEventListener('click', submitCode);
 }
 
 document.addEventListener('DOMContentLoaded', ()=> {
     cacheDOMElements(); 
-    bindEventListeners(); // ALTERAÇÃO: Chama a nova função centralizada
+    bindEventListeners(); 
     setBodyBackground('menuScreen');
 
     const userLang = navigator.language || navigator.userLanguage; 
@@ -2315,11 +2187,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
     document.documentElement.classList.add('no-scroll');
     document.body.classList.add('no-scroll');
     
-    // ALTERAÇÃO: A lógica de clique inicial foi movida para bindEventListeners
-    // para garantir que o áudio seja iniciado corretamente.
-    
     checkForSave();
-    musicController.play('theme'); // A música só vai tocar de fato após o primeiro clique
+    musicController.play('theme');
 });
 
 </script>
