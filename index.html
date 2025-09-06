@@ -702,11 +702,13 @@
     <div id="potion-overlay"></div>
     <div id="codeOverlay">
         <div id="codeModal">
-            <button id="closeCodeBtn" onclick="closeCodeModal()">&times;</button>
+            <!-- ALTERAÇÃO: Removido onclick -->
+            <button id="closeCodeBtn">&times;</button>
             <h2 id="codeTitle">Código</h2>
             <input type="text" id="codeInput" placeholder="DIGITE O CÓDIGO" oninput="this.value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '')">
             <p id="codeError"></p>
-            <button id="confirmCodeBtn" onclick="submitCode()">Confirmar</button>
+            <!-- ALTERAÇÃO: Removido onclick -->
+            <button id="confirmCodeBtn">Confirmar</button>
         </div>
     </div>
 
@@ -730,12 +732,14 @@
       <h2 class="screen-title">Escolha Sua Classe</h2>
       <h3 id="classPreviewTitle"></h3>
       <div class="class-selector">
-        <button class="class-btn" style="--class-color:#9d4edd;" onclick="previewClass('Maestria', '#9d4edd', this); playSound('select_class');"><svg viewBox="0 0 100 100"><path d="M50 12 C52 12 83.5 29.5 85.5 30.5 S97 64.5 95 65.5 S69.5 92 67.5 92 S34.5 92 32.5 92 S3 66.5 5 65.5 S16.5 31.5 14.5 30.5 S48 12 50 12 Z" /></svg></button>
-        <button class="class-btn" style="--class-color:#ff477e;" onclick="previewClass('Desolacao', '#ff477e', this); playSound('select_class');"><svg viewBox="0 0 100 100"><path d="M50 15 C52 15 85 48 85 50 S52 85 50 85 S15 52 15 50 S48 15 50 15 Z" /></svg></button>
-        <button class="class-btn" style="--class-color:#ff9e00;" onclick="previewClass('Perseveranca', '#ff9e00', this); playSound('select_class');"><svg viewBox="0 0 100 100"><path d="M50 10 C52 10 87 29 89 30 S89 69 89 70 S52 90 50 90 S13 71 11 70 S11 31 11 30 S48 10 50 10 Z" /></svg></button>
+        <!-- ALTERAÇÃO: Removido onclick e adicionado data-attributes para identificar a classe -->
+        <button id="classBtnMaestria" class="class-btn" style="--class-color:#9d4edd;" data-class-name="Maestria" data-class-color="#9d4edd"><svg viewBox="0 0 100 100"><path d="M50 12 C52 12 83.5 29.5 85.5 30.5 S97 64.5 95 65.5 S69.5 92 67.5 92 S34.5 92 32.5 92 S3 66.5 5 65.5 S16.5 31.5 14.5 30.5 S48 12 50 12 Z" /></svg></button>
+        <button id="classBtnDesolacao" class="class-btn" style="--class-color:#ff477e;" data-class-name="Desolacao" data-class-color="#ff477e"><svg viewBox="0 0 100 100"><path d="M50 15 C52 15 85 48 85 50 S52 85 50 85 S15 52 15 50 S48 15 50 15 Z" /></svg></button>
+        <button id="classBtnPerseveranca" class="class-btn" style="--class-color:#ff9e00;" data-class-name="Perseveranca" data-class-color="#ff9e00"><svg viewBox="0 0 100 100"><path d="M50 10 C52 10 87 29 89 30 S89 69 89 70 S52 90 50 90 S13 71 11 70 S11 31 11 30 S48 10 50 10 Z" /></svg></button>
       </div>
       <div id="classInfo">Selecione uma classe para ver seus detalhes.</div>
-      <button id="confirmClassBtn" class="continue-btn" style="display:none; max-width: 300px;" onclick="confirmClass()">Confirmar</button>
+      <!-- ALTERAÇÃO: Removido onclick -->
+      <button id="confirmClassBtn" class="continue-btn" style="display:none; max-width: 300px;">Confirmar</button>
     </section>
 
     <section id="battleScreen" class="screen" aria-label="batalha">
@@ -785,14 +789,15 @@
           <div class="hp-bar"><div id="playerInner" class="hp-inner player-hp"></div></div>
         </div>
         <div class="controls">
-          <button id="atkBtn" class="small-btn" onclick="playerAttack()"><div style="z-index:1">ATACAR</div></button>
-          <button id="shieldBtn" class="small-btn" onclick="playerShield()">
+          <!-- ALTERAÇÃO: Removido onclick de todos os botões de controle -->
+          <button id="atkBtn" class="small-btn"><div style="z-index:1">ATACAR</div></button>
+          <button id="shieldBtn" class="small-btn">
             <div class="fill shield-fill" id="shieldFill"></div>
             <div style="z-index:1">ESCUDO<span class="meta" id="shieldMeta"></span></div>
           </button>
-          <button id="potionBtn" class="small-btn" onclick="playerPotion()"><div style="z-index:1">POÇÃO<span class="meta" id="potionMeta"></span></div></button>
+          <button id="potionBtn" class="small-btn"><div style="z-index:1">POÇÃO<span class="meta" id="potionMeta"></span></div></button>
         </div>
-        <button id="magicBtn" class="magic-btn" onclick="playerMagic()">
+        <button id="magicBtn" class="magic-btn">
           <div class="fill class-color-fill" id="magicFill"></div>
           <span id="magicText">MAGIA</span>
         </button>
@@ -804,8 +809,9 @@
     <section id="shopScreen" class="screen" aria-label="loja">
         <h2 class="screen-title">Entre Andares</h2>
         <div class="shop-tabs">
-            <button class="tab-btn active" onclick="showTab('shopTab'); playSound('click');">Loja</button>
-            <button class="tab-btn" onclick="showTab('skillTab'); playSound('click');">Habilidades</button>
+            <!-- ALTERAÇÃO: Removido onclick -->
+            <button id="shopTabBtn" class="tab-btn active">Loja</button>
+            <button id="skillTabBtn" class="tab-btn">Habilidades</button>
         </div>
         <div class="persistent-info">
             <div id="shopGoldDisplay"></div>
@@ -815,24 +821,27 @@
             <div class="shop-npc">
                 <h3>Bruxo Arcano</h3>
                 <div class="shop-items">
-                    <button class="btn shop-btn" id="buyPotionBtn" onclick="buyItem('potion', this)"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 1.63.51 3.14 1.38 4.44L5 22h14l-1.38-8.56C18.49 12.14 19 10.63 19 9c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5z M9 15h6v2H9z"/></svg><div class="btn-text">Comprar Poção <span class="btn-subtext" id="potionHealSubtext"></span></div><span class="price" id="buyPotionCost"></span></button>
+                    <!-- ALTERAÇÃO: Removido onclick e adicionado ID para fácil acesso -->
+                    <button class="btn shop-btn" id="buyPotionBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 1.63.51 3.14 1.38 4.44L5 22h14l-1.38-8.56C18.49 12.14 19 10.63 19 9c0-3.87-3.13-7-7-7zm0 2c2.76 0 5 2.24 5 5s-2.24 5-5 5-5-2.24-5-5 2.24-5 5-5z M9 15h6v2H9z"/></svg><div class="btn-text">Comprar Poção <span class="btn-subtext" id="potionHealSubtext"></span></div><span class="price" id="buyPotionCost"></span></button>
                 </div>
             </div>
             <div class="shop-npc">
                 <h3>Ferreiro Mestre</h3>
                 <div class="shop-items">
-                    <button class="btn shop-btn" id="buyShieldBtn" onclick="buyItem('shield', this)"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 4h2v5h-2V5zm0 6h2v2h-2v-2z"/></svg><div class="btn-text">Restaurar Carga de Escudo</div><span class="price" id="buyShieldCost"></span></button>
-                    <button class="btn shop-btn" id="buyUpgradeBtn" onclick="buyItem('upgrade', this)"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg><div class="btn-text">Melhorar Arma<span class="btn-subtext" id="upgradeDmgSubtext"></span></div><span class="price" id="buyUpgradeCost"></span></button>
-                    <button class="btn shop-btn" id="buyArmorBtn" onclick="buyItem('armor', this)"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg><div class="btn-text">Melhorar Armadura <span class="btn-subtext">+1 de Defesa</span></div><span class="price" id="buyArmorCost"></span></button>
-                    <button class="btn shop-btn" id="buyMaxShieldBtn" onclick="buyItem('maxShield', this)"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 4h2v5h-2V5zm0 6h2v2h-2v-2z"/></svg><div class="btn-text">Aprimorar Escudo <span class="btn-subtext">+1 Carga Máxima</span></div><span class="price" id="buyMaxShieldCost"></span></button>
-                    <button class="btn shop-btn" id="buyPotionUpgradeBtn" onclick="buyItem('potionUpgrade', this)"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l1.58 1.58c.63-1.05.99-2.27.99-3.56.01-4.79-3.72-8.68-8.5-8.98zM12 15c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-1 9h2v7h-2v-7zm1-13C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg><div class="btn-text">Reforçar Frascos <span class="btn-subtext">+10 de Cura para Poções</span></div><span class="price" id="buyPotionUpgradeCost"></span></button>
+                    <!-- ALTERAÇÃO: Removido onclick e adicionado ID para fácil acesso -->
+                    <button class="btn shop-btn" id="buyShieldBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 4h2v5h-2V5zm0 6h2v2h-2v-2z"/></svg><div class="btn-text">Restaurar Carga de Escudo</div><span class="price" id="buyShieldCost"></span></button>
+                    <button class="btn shop-btn" id="buyUpgradeBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83zM3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/></svg><div class="btn-text">Melhorar Arma<span class="btn-subtext" id="upgradeDmgSubtext"></span></div><span class="price" id="buyUpgradeCost"></span></button>
+                    <button class="btn shop-btn" id="buyArmorBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg><div class="btn-text">Melhorar Armadura <span class="btn-subtext">+1 de Defesa</span></div><span class="price" id="buyArmorCost"></span></button>
+                    <button class="btn shop-btn" id="buyMaxShieldBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 4h2v5h-2V5zm0 6h2v2h-2v-2z"/></svg><div class="btn-text">Aprimorar Escudo <span class="btn-subtext">+1 Carga Máxima</span></div><span class="price" id="buyMaxShieldCost"></span></button>
+                    <button class="btn shop-btn" id="buyPotionUpgradeBtn"><svg class="btn-icon" viewBox="0 0 24 24"><path d="M13 2.05v3.03c3.39.49 6 3.39 6 6.92 0 .9-.18 1.75-.48 2.54l1.58 1.58c.63-1.05.99-2.27.99-3.56.01-4.79-3.72-8.68-8.5-8.98zM12 15c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0-8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-1 9h2v7h-2v-7zm1-13C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg><div class="btn-text">Reforçar Frascos <span class="btn-subtext">+10 de Cura para Poções</span></div><span class="price" id="buyPotionUpgradeCost"></span></button>
                 </div>
             </div>
         </div>
         <div id="skillTab" class="skill-container" style="display:none;">
             <div class="skill-items"></div>
         </div>
-        <button class="continue-btn" onclick="goToNextBattle()">Próximo Andar &rarr;</button>
+        <!-- ALTERAÇÃO: Removido onclick -->
+        <button id="nextFloorBtn" class="continue-btn">Próximo Andar &rarr;</button>
     </section>
 
     <section id="eventScreen" class="screen" aria-label="evento">
@@ -855,211 +864,1463 @@
 
   </div>
 
-<!-- A tag de script foi movida para o final do body e transformada em type="module" -->
-<script type="module">
-// --- CORREÇÃO: Importação do SDK do Discord ---
-import { DiscordSDK } from "https://unpkg.com/@discord/embedded-app-sdk@1.2.0/dist/embedded-app-sdk.js";
+<script>
+// --- CORE WEB AUDIO ENGINE (MUSIC & SFX) ---
 
-// --- CORREÇÃO: Inicialização do SDK ---
-const discordSdk = new DiscordSDK('730835158311239753');
+// ALTERAÇÃO: Unificar o AudioContext para SFX e Música
+let audioCtx;
+const audioState = {};
 
-setupDiscordSdk().then(() => {
-    console.log("Discord SDK está pronto. Inicializando o jogo...");
-    // O código de inicialização do seu jogo que estava no DOMContentLoaded agora vai aqui.
-    initializeApp();
-});
+const NOTE_FREQUENCIES = {
+    'C2': 65.41, 'Db2': 69.30, 'D2': 73.42, 'Eb2': 77.78, 'E2': 82.41, 'F2': 87.31, 'Gb2': 92.50, 'G2': 98.00, 'Ab2': 103.83, 'A2': 110.00, 'Bb2': 116.54, 'B2': 123.47,
+    'C3': 130.81, 'Db3': 138.59, 'D3': 146.83, 'Eb3': 155.56, 'E3': 164.81, 'F3': 174.61, 'Gb3': 185.00, 'G3': 196.00, 'Ab3': 207.65, 'A3': 220.00, 'Bb3': 233.08, 'B3': 246.94,
+    'C4': 261.63, 'Db4': 277.18, 'D4': 293.66, 'Eb4': 311.13, 'E4': 329.63, 'F4': 349.23, 'Gb4': 369.99, 'G4': 392.00, 'Ab4': 415.30, 'A4': 440.00, 'Bb4': 466.16, 'B4': 493.88,
+    'C5': 523.25, 'Db5': 554.37, 'D5': 587.33, 'Eb5': 622.25, 'E5': 659.25, 'F5': 698.46, 'Gb5': 739.99, 'G5': 783.99, 'Ab5': 830.61, 'A5': 880.00, 'Bb5': 932.33, 'B5': 987.77,
+};
 
-async function setupDiscordSdk() {
-    await discordSdk.ready();
-    console.log("Discord SDK está 'ready'.");
-    // Futuramente, a lógica de autorização e autenticação iria aqui.
-    // Por enquanto, apenas o .ready() já estabelece a ponte necessária.
+// ALTERAÇÃO: Função de inicialização de áudio para ser chamada no primeiro clique
+function initAudio() {
+    if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+    }
 }
 
-// --- CORREÇÃO: Todo o seu código de jogo é colocado dentro de uma função de inicialização ---
-function initializeApp() {
+function playNote(ctx, type, freq, startTime, duration, volume = 0.5) {
+    if (!ctx || ctx.state === 'closed' || !freq) return;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
 
-    // --- SEU CÓDIGO ORIGINAL (ÁUDIO E JOGO) COMEÇA AQUI ---
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, startTime);
+    
+    gain.gain.setValueAtTime(0, startTime);
+    gain.gain.linearRampToValueAtTime(volume, startTime + 0.02); // Fast Attack
+    gain.gain.exponentialRampToValueAtTime(volume * 0.8, startTime + duration * 0.7); // Decay/Sustain
+    gain.gain.linearRampToValueAtTime(0, startTime + duration); // Release
 
-    // --- CORE WEB AUDIO ENGINE (MUSIC & SFX) ---
-    const audioState = {};
-    const NOTE_FREQUENCIES = {
-        'C2': 65.41, 'Db2': 69.30, 'D2': 73.42, 'Eb2': 77.78, 'E2': 82.41, 'F2': 87.31, 'Gb2': 92.50, 'G2': 98.00, 'Ab2': 103.83, 'A2': 110.00, 'Bb2': 116.54, 'B2': 123.47,
-        'C3': 130.81, 'Db3': 138.59, 'D3': 146.83, 'Eb3': 155.56, 'E3': 164.81, 'F3': 174.61, 'Gb3': 185.00, 'G3': 196.00, 'Ab3': 207.65, 'A3': 220.00, 'Bb3': 233.08, 'B3': 246.94,
-        'C4': 261.63, 'Db4': 277.18, 'D4': 293.66, 'Eb4': 311.13, 'E4': 329.63, 'F4': 349.23, 'Gb4': 369.99, 'G4': 392.00, 'Ab4': 415.30, 'A4': 440.00, 'Bb4': 466.16, 'B4': 493.88,
-        'C5': 523.25, 'Db5': 554.37, 'D5': 587.33, 'Eb5': 622.25, 'E5': 659.25, 'F5': 698.46, 'Gb5': 739.99, 'G5': 783.99, 'Ab5': 830.61, 'A5': 880.00, 'Bb5': 932.33, 'B5': 987.77,
-    };
-    function playNote(ctx, type, freq, startTime, duration, volume = 0.5) {
-        if (!ctx || ctx.state === 'closed' || !freq) return;
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = type;
-        osc.frequency.setValueAtTime(freq, startTime);
-        gain.gain.setValueAtTime(0, startTime);
-        gain.gain.linearRampToValueAtTime(volume, startTime + 0.02);
-        gain.gain.exponentialRampToValueAtTime(volume * 0.8, startTime + duration * 0.7);
-        gain.gain.linearRampToValueAtTime(0, startTime + duration);
-        osc.connect(gain).connect(ctx.destination);
-        osc.start(startTime);
-        osc.stop(startTime + duration);
+    osc.connect(gain).connect(ctx.destination);
+    osc.start(startTime);
+    osc.stop(startTime + duration);
+}
+
+function playPercussion(ctx, type, startTime, volume = 0.8) {
+    if (!ctx || ctx.state === 'closed') return;
+    const noise = ctx.createBufferSource();
+    const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.5, ctx.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+    noise.buffer = buffer;
+
+    const filter = ctx.createBiquadFilter();
+    const gain = ctx.createGain();
+    let duration;
+
+    if (type === 'kick') {
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(200, startTime);
+        filter.frequency.exponentialRampToValueAtTime(50, startTime + 0.2);
+        duration = 0.2;
+    } else { // Snare
+        filter.type = 'bandpass';
+        filter.frequency.setValueAtTime(2000, startTime);
+        filter.Q.setValueAtTime(1, startTime);
+        duration = 0.15;
     }
-    function playPercussion(ctx, type, startTime, volume = 0.8) {
-        if (!ctx || ctx.state === 'closed') return;
-        const noise = ctx.createBufferSource();
-        const buffer = ctx.createBuffer(1, ctx.sampleRate * 0.5, ctx.sampleRate);
-        const data = buffer.getChannelData(0);
-        for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
-        noise.buffer = buffer;
-        const filter = ctx.createBiquadFilter();
-        const gain = ctx.createGain();
-        let duration;
-        if (type === 'kick') { filter.type = 'lowpass'; filter.frequency.setValueAtTime(200, startTime); filter.frequency.exponentialRampToValueAtTime(50, startTime + 0.2); duration = 0.2; }
-        else { filter.type = 'bandpass'; filter.frequency.setValueAtTime(2000, startTime); filter.Q.setValueAtTime(1, startTime); duration = 0.15; }
-        gain.gain.setValueAtTime(0, startTime);
-        gain.gain.linearRampToValueAtTime(volume, startTime + 0.01);
-        gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
-        noise.connect(filter).connect(gain).connect(ctx.destination);
-        noise.start(startTime);
-        noise.stop(startTime + duration);
-    }
-    function createSequencer(ctx, bpm, tracks) {
-        const totalBeats = tracks[0].notes.reduce((sum, note) => sum + note.d, 0);
-        const beatDuration = 60 / bpm;
-        let schedulerTime = ctx.currentTime + 0.1;
-        const loop = () => {
-            const loopEndTime = schedulerTime + totalBeats * beatDuration;
-            for (const track of tracks) {
-                let currentBeat = 0;
-                for (const note of track.notes) {
-                    const noteStartTime = schedulerTime + currentBeat * beatDuration;
-                    const noteDuration = note.d * beatDuration;
-                    if (note.n) { playNote(ctx, track.type, NOTE_FREQUENCIES[note.n], noteStartTime, noteDuration, track.volume); }
-                    else if (note.p) { playPercussion(ctx, note.p, noteStartTime, track.volume); }
-                    currentBeat += note.d;
+
+    gain.gain.setValueAtTime(0, startTime);
+    gain.gain.linearRampToValueAtTime(volume, startTime + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.001, startTime + duration);
+    
+    noise.connect(filter).connect(gain).connect(ctx.destination);
+    noise.start(startTime);
+    noise.stop(startTime + duration);
+}
+
+
+function createSequencer(ctx, bpm, tracks) {
+    if (!ctx) return; // ALTERAÇÃO: Prevenção de erro se o audioCtx não estiver pronto
+    const totalBeats = tracks[0].notes.reduce((sum, note) => sum + note.d, 0);
+    const beatDuration = 60 / bpm;
+    let schedulerTime = ctx.currentTime + 0.1;
+    
+    const loop = () => {
+        if (!musicController.currentTrack || !audioState[musicController.currentTrack]?.isPlaying) return; // ALTERAÇÃO: Checa se a música ainda deve tocar
+        
+        const loopEndTime = schedulerTime + totalBeats * beatDuration;
+        
+        for (const track of tracks) {
+            let currentBeat = 0;
+            for (const note of track.notes) {
+                const noteStartTime = schedulerTime + currentBeat * beatDuration;
+                const noteDuration = note.d * beatDuration;
+                if (note.n) {
+                    playNote(ctx, track.type, NOTE_FREQUENCIES[note.n], noteStartTime, noteDuration, track.volume);
+                } else if (note.p) {
+                    playPercussion(ctx, note.p, noteStartTime, track.volume);
                 }
+                currentBeat += note.d;
             }
-            const nextLoopDelay = (loopEndTime - ctx.currentTime) * 1000;
-            if (musicController.currentTrack && audioState[musicController.currentTrack]) { audioState[musicController.currentTrack].timeoutId = setTimeout(loop, nextLoopDelay); }
-        };
-        loop();
-    }
-    function composeTheme(ctx) { const bpm = 125; const tracks = [ { type: 'square', volume: 0.15, notes: [ {n: 'C3', d: 4}, {n: 'G2', d: 4}, {n: 'A2', d: 4}, {n: 'F2', d: 4}, {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'F2', d: 2}, {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'E2', d: 2}, ]}, { type: 'triangle', volume: 0.08, notes: [ {n: 'E4', d: 4}, {n: 'B3', d: 4}, {n: 'C4', d: 4}, {n: 'A3', d: 4}, {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'E4', d: 2}, {n: 'C4', d: 2}, {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'C4', d: 2}, {n: 'B3', d: 2}, ]}, { type: 'sawtooth', volume: 0.18, notes: [ {d: 4}, {d: 1}, {n: 'C4', d: 1}, {n: 'E4', d: 1}, {n: 'G4', d: 1}, {d: 1}, {n: 'G4', d: 1}, {n: 'A4', d: 1}, {n: 'G4', d: 1}, {d: 1}, {n: 'A4', d: 1}, {n: 'C5', d: 1}, {n: 'B4', d: 1}, {d: 1}, {n: 'A4', d: 2}, {d: 1}, {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 1.5}, {n: 'E5', d: 0.5}, {n: 'D5', d: 2}, {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1}, {n: 'E5', d: 1.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 2}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    function composeMenu(ctx) { const bpm = 70; const tracks = [ { type: 'triangle', volume: 0.2, notes: [ {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'G3', d: 0.5}, {n: 'B3', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'B3', d: 0.5}, {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'A4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'F3', d: 0.5}, {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'F4', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'A3', d: 0.5}, ]}, { type: 'sine', volume: 0.25, notes: [ {d: 6}, {n: 'C5', d: 3}, {n: 'A4', d: 3}, {d: 6}, {n: 'G4', d: 3}, {n: 'E4', d: 3}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    function composeBoss1(ctx) { const bpm = 130; const tracks = [ { type: 'percussion', volume: 0.5, notes: [ {p: 'kick', d: 1}, {d:1}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5} ]}, { type: 'square', volume: 0.15, notes: [ {n: 'C3', d: 4}, {n: 'Ab2', d: 4}, {n: 'F2', d: 4}, {n: 'G2', d: 4} ]}, { type: 'sawtooth', volume: 0.2, notes: [ {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1}, {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 2}, {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1}, {n: 'D5', d: 2}, {n: 'C5', d: 2}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    function composeBoss2(ctx) { const bpm = 155; const tracks = [ { type: 'percussion', volume: 0.55, notes: [ {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1} ]}, { type: 'square', volume: 0.18, notes: [ {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'F2', d: 2}, {n: 'G2', d: 2} ]}, { type: 'sawtooth', volume: 0.2, notes: [ {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'F5', d: 1}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'D5', d: 1}, {n: 'C5', d: 1}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    function composeBoss3(ctx) { const bpm = 145; const tracks = [ { type: 'percussion', volume: 0.6, notes: [ {p: 'kick', d: 4}, {d: 4}, {p: 'kick', d: 4}, {d: 4}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1}, {d: 16} ]}, { type: 'square', volume: 0.2, notes: [ {n: 'C2', d: 8}, {n: 'Gb2', d: 8}, {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2}, {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2}, {n: 'B2', d: 8}, {n: 'F2', d: 8}, ]}, { type: 'sawtooth', volume: 0.2, notes: [ {d: 4}, {n: 'Db4', d: 2}, {n: 'C4', d: 2}, {d: 8}, {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2}, {n: 'Gb5', d: 1}, {n: 'Db5', d: 1}, {n: 'C5', d: 2}, {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2}, {n: 'F5', d: 1}, {n: 'G5', d: 1}, {n: 'Ab5', d: 2}, {d: 4}, {n: 'A4', d: 2}, {n: 'Bb4', d: 2}, {d: 8}, ]} ]; createSequencer(ctx, bpm, tracks); }
-    function composeBattleEasy(ctx) { const bpm = 120; const tracks = [ { type: 'percussion', volume: 0.45, notes: [ {p: 'kick', d: 1}, {d: 1}, {p: 'snare', d: 1}, {d: 1} ]}, { type: 'square', volume: 0.15, notes: [ {n: 'F2', d: 4}, {n: 'Db2', d: 4}, {n: 'Ab2', d: 4}, {n: 'C2', d: 4}, ]}, { type: 'sawtooth', volume: 0.18, notes: [ {n: 'F4', d: 1.5}, {n: 'Eb4', d: 0.5}, {n: 'C4', d: 2}, {n: 'Db4', d: 1.5}, {n: 'C4', d: 0.5}, {n: 'Ab3', d: 2}, {n: 'Ab4', d: 1}, {n: 'G4', d: 1}, {n: 'Ab4', d: 1}, {n: 'F4', d: 1}, {n: 'G4', d: 2}, {n: 'C4', d: 2}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    function composeBattleMedium(ctx) { const bpm = 135; const tracks = [ { type: 'percussion', volume: 0.5, notes: [ {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {d:0.5}, {p: 'snare', d: 1} ]}, { type: 'square', volume: 0.18, notes: [ {n: 'G2', d: 1}, {n: 'G2', d: 1}, {n: 'Eb3', d: 1}, {n: 'F3', d: 1} ]}, { type: 'sawtooth', volume: 0.2, notes: [ {n: 'G4', d: 1}, {n: 'Bb4', d: 1}, {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 1.5}, {n: 'Eb5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'Bb4', d: 1}, {n: 'G4', d: 1}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    function composeBattleHard(ctx) { const bpm = 150; const tracks = [ { type: 'percussion', volume: 0.55, notes: [ {p: 'kick', d: 0.5}, {d:0.5}, {p: 'snare', d: 0.5}, {d:0.5}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1} ]}, { type: 'sawtooth', volume: 0.2, notes: [ {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'E2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'G2', d: 0.5}, ]}, { type: 'square', volume: 0.22, notes: [ {n: 'A4', d: 0.5}, {d:0.5}, {n: 'E5', d: 0.5}, {d:0.5}, {n: 'D5', d: 0.5}, {d:0.5}, {n: 'C5', d: 0.5}, {n: 'F5', d: 1}, {n: 'E5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'E5', d: 1}, ]}, ]; createSequencer(ctx, bpm, tracks); }
-    const compositionMap = { 'theme': composeTheme, 'menu': composeMenu, 'battleEasy': composeBattleEasy, 'battleMedium': composeBattleMedium, 'battleHard': composeBattleHard, 'boss1': composeBoss1, 'boss2': composeBoss2, 'boss3': composeBoss3, };
-    const musicController = { currentTrack: null, play(trackId) { if (this.currentTrack === trackId && audioState[trackId]?.isPlaying) { return; } this.stop(); if (compositionMap[trackId]) { const ctx = new (window.AudioContext || window.webkitAudioContext)(); audioState[trackId] = { context: ctx, isPlaying: true, timeoutId: null }; compositionMap[trackId](ctx); this.currentTrack = trackId; } }, stop() { if (this.currentTrack && audioState[this.currentTrack]?.isPlaying) { clearTimeout(audioState[this.currentTrack].timeoutId); audioState[this.currentTrack].context.close(); audioState[this.currentTrack] = { context: null, isPlaying: false, timeoutId: null }; } this.currentTrack = null; } };
+        }
+        
+        const nextLoopDelay = (loopEndTime - ctx.currentTime) * 1000;
+        if (musicController.currentTrack && audioState[musicController.currentTrack]) {
+            audioState[musicController.currentTrack].timeoutId = setTimeout(loop, nextLoopDelay);
+        }
+    };
     
-    /* --------------- GAME LOGIC STARTS HERE --------------- */
-    const initialState = { player: { hp:120, maxHp:120, defense:0, shieldMax:2, shield:2, potions:2, dmg:14, crit:10, critMultiplier: 1.5, class:null, dmgUpgrade:0, armorUpgrade: 0, potionUpgrade: 0, skillPoints: 1, skills: {}, buff: { type: null, turns: 0 }, storyFlags: {}, encounteredNPCs: [], isInvincible: false, hasHitKill: false }, enemy: { name:'Goblin', elementId: 'goblinImg', hp:85, maxHp:85, dmg:7, defense: 0, evasion: 3, gold: [8,15], isRaged: false, tier: 'Fácil' }, magic: { cdMax:4, cd:0 }, gold: 50, level: 0, currentScreen: 'menuScreen', lastEnemyName: null };
-    const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
-    let state = deepCopy(initialState);
-    let isShielding = false;
-    let isPlayerTurn = true;
-    let hasUsedLastStand = false;
-    const shopPrices = { potion: 10, shield: 10, upgrade: 30, armor: 35, maxShield: 60, potionUpgrade: 50 };
-    let selectedClass = { name: null, color: null };
-    const classColors = { Maestria: '#9d4edd', Desolacao: '#ff477e', Perseveranca: '#ff9e00' };
-    let continueCallback = () => {};
-    const uiElements = {};
-    const uiCache = {};
-    function cacheDOMElements() { const ids = [ 'mainMenuTitle', 'startHint', 'classPreviewTitle', 'classInfo', 'confirmClassBtn', 'enemyNameLabel', 'levelDisplay', 'goldBattle', 'skillPointBattle', 'enemyInner', 'playerInner', 'shieldFill', 'shieldMeta', 'potionMeta', 'magicFill', 'atkBtn', 'shieldBtn', 'potionBtn', 'magicBtn', 'playerStatusIcons', 'logText', 'shopGoldDisplay', 'skillPointDisplay', 'eventTitle', 'eventText', 'eventChoices', 'gameOverTitle', 'gameOverHint', 'endingText', 'potionHealSubtext', 'upgradeDmgSubtext', 'shopTab', 'skillTab' ]; ids.forEach(id => uiElements[id] = document.getElementById(id)); uiElements.shopButtons = { potion: document.getElementById('buyPotionBtn'), shield: document.getElementById('buyShieldBtn'), upgrade: document.getElementById('buyUpgradeBtn'), armor: document.getElementById('buyArmorBtn'), maxShield: document.getElementById('buyMaxShieldBtn'), potionUpgrade: document.getElementById('buyPotionUpgradeBtn'), }; }
-    let sfxAudioCtx;
-    function initSfxAudio() { if (!sfxAudioCtx) { sfxAudioCtx = new (window.AudioContext || window.webkitAudioContext)(); } }
-    function playTone({ freq, freqEnd, duration, type, gainValue, rampType = 'exponential' }, startTime = 0) { if (!sfxAudioCtx || sfxAudioCtx.state === 'suspended') return; const now = sfxAudioCtx.currentTime; const time = now + startTime; const osc = sfxAudioCtx.createOscillator(); const gain = sfxAudioCtx.createGain(); osc.type = type; osc.frequency.setValueAtTime(freq, time); if (freqEnd) { if (rampType === 'linear') osc.frequency.linearRampToValueAtTime(freqEnd, time + duration); else osc.frequency.exponentialRampToValueAtTime(freqEnd, time + duration); } gain.gain.setValueAtTime(gainValue, time); gain.gain.exponentialRampToValueAtTime(0.001, time + duration); osc.connect(gain).connect(sfxAudioCtx.destination); osc.start(time); osc.stop(time + duration); }
-    const soundConfig = { 'click': { freq: 440, duration: 0.1, type: 'triangle', gainValue: 0.3 }, 'hit': { freq: 200, freqEnd: 100, duration: 0.1, type: 'square', gainValue: 0.4 }, 'crit_hit': { freq: 800, freqEnd: 300, duration: 0.2, type: 'sawtooth', gainValue: 0.5 }, 'player_hit': { freq: 150, freqEnd: 80, duration: 0.2, type: 'square', gainValue: 0.4 }, 'shield_up': { freq: 300, freqEnd: 1200, duration: 0.2, type: 'sine', gainValue: 0.4, rampType: 'linear' }, 'heal': { freq: 400, freqEnd: 1600, duration: 0.5, type: 'sine', gainValue: 0.3, rampType: 'linear' }, 'magic_perseverance': { freq: 400, freqEnd: 1600, duration: 0.5, type: 'sine', gainValue: 0.3, rampType: 'linear' }, 'magic_maestry': { freq: 1200, freqEnd: 600, duration: 0.4, type: 'triangle', gainValue: 0.4 }, 'magic_desolation': { freq: 500, freqEnd: 100, duration: 0.5, type: 'sawtooth', gainValue: 0.5 }, 'crit_grave': { freq: 120, freqEnd: 80, duration: 0.3, type: 'square', gainValue: 0.4 }, 'select_class': { freq: 400, freqEnd: 800, duration: 0.2, type: 'sine', gainValue: 0.3, rampType: 'linear' }, 'boss_transform': { freq: 50, freqEnd: 200, duration: 1.5, type: 'sawtooth', gainValue: 0.6 }, 'confirm_action': { freq: 600, freqEnd: 300, duration: 0.1, type: 'square', gainValue: 0.3 }, 'code_success': { freq: 1046, duration: 0.15, type: 'triangle', gainValue: 0.3 }, 'code_error': { freq: 150, freqEnd: 100, duration: 0.2, type: 'square', gainValue: 0.4 }, 'victory': () => [ [523, 0], [659, 0.15], [783, 0.3], [1046, 0.45] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.1, type: 'triangle', gainValue: 0.3 }, t)), 'defeat': () => [ [440, 0], [330, 0.2], [220, 0.4], [110, 0.6] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.3, type: 'square', gainValue: 0.3 }, t)), 'game_start': () => [ [261, 0], [329, 0.1], [392, 0.2] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.15, type: 'sine', gainValue: 0.25 }, t)), 'purchase': () => [ [880, 0], [1046, 0.08] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.1, type: 'triangle', gainValue: 0.2 }, t)), 'swing': () => { const now = sfxAudioCtx.currentTime; const noise = sfxAudioCtx.createBufferSource(); const buffer = sfxAudioCtx.createBuffer(1, sfxAudioCtx.sampleRate * 0.2, sfxAudioCtx.sampleRate); const data = buffer.getChannelData(0); for (let i = 0; i < data.length; i++) { data[i] = Math.random() * 2 - 1; } noise.buffer = buffer; const bandpass = sfxAudioCtx.createBiquadFilter(); bandpass.type = 'bandpass'; bandpass.frequency.setValueAtTime(1000, now); bandpass.frequency.exponentialRampToValueAtTime(4000, now + 0.2); const gain = sfxAudioCtx.createGain(); gain.gain.setValueAtTime(0.2, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2); noise.connect(bandpass).connect(gain).connect(sfxAudioCtx.destination); noise.start(now); }, 'dodge': () => { const now = sfxAudioCtx.currentTime; const noise = sfxAudioCtx.createBufferSource(); const dBuffer = sfxAudioCtx.createBuffer(1, sfxAudioCtx.sampleRate*0.15, sfxAudioCtx.sampleRate); const dData = dBuffer.getChannelData(0); for(let i=0;i<dData.length;i++){dData[i]=Math.random()*2-1;} noise.buffer=dBuffer; const dBandpass = sfxAudioCtx.createBiquadFilter(); dBandpass.type='bandpass'; dBandpass.frequency.setValueAtTime(3000,now); dBandpass.frequency.exponentialRampToValueAtTime(8000, now+0.15); const gain=sfxAudioCtx.createGain(); gain.gain.setValueAtTime(0.3,now); gain.gain.exponentialRampToValueAtTime(0.001,now+0.15); noise.connect(dBandpass).connect(gain).connect(sfxAudioCtx.destination); noise.start(now); }, };
-    function playSound(type) { if (!sfxAudioCtx) return; if (sfxAudioCtx.state === 'suspended') { sfxAudioCtx.resume(); } const sound = soundConfig[type]; if (typeof sound === 'function') sound(); else if (sound) playTone(sound); }
-    const enemyMap = { 'Slime': { name: 'Slime', tier: 'Fácil', elementId: 'slimeImg', baseHp: 75, baseDmg: 6, defense: 0, evasion: 0, gold: [8, 14] }, 'Goblin': { name: 'Goblin', tier: 'Fácil', elementId: 'goblinImg', baseHp: 90, baseDmg: 7, defense: 0, evasion: 3, gold: [10, 18] }, 'Morcego': { name: 'Morcego', tier: 'Fácil', elementId: 'morcegoImg', baseHp: 65, baseDmg: 9, defense: 0, evasion: 18, gold: [12, 20] }, 'Esqueleto': { name: 'Esqueleto', tier: 'Fácil', elementId: 'esqueletoImg', baseHp: 80, baseDmg: 8, defense: 1, evasion: 5, gold: [9, 16] }, 'Aranha': { name: 'Aranha', tier: 'Fácil', elementId: 'aracnaImg', baseHp: 70, baseDmg: 10, defense: 0, evasion: 10, gold: [11, 19] }, 'Orc': { name: 'Orc', tier: 'Médio', elementId: 'orcImg', baseHp: 130, baseDmg: 11, defense: 2, evasion: 3, gold: [15, 25] }, 'Golem': { name: 'Golem', tier: 'Médio', elementId: 'golemImg', baseHp: 170, baseDmg: 8, defense: 6, evasion: 0, gold: [20, 30] }, 'Espectro': { name: 'Espectro', tier: 'Médio', elementId: 'espectroImg', baseHp: 95, baseDmg: 15, defense: 2, evasion: 15, gold: [22, 35] }, 'Grifo': { name: 'Grifo', tier: 'Médio', elementId: 'grifoImg', baseHp: 110, baseDmg: 16, defense: 3, evasion: 12, gold: [25, 38] }, 'Elemental': { name: 'Elemental', tier: 'Médio', elementId: 'elementalImg', baseHp: 190, baseDmg: 10, defense: 8, evasion: 0, gold: [28, 40] }, 'Minotauro': { name: 'Minotauro', tier: 'Difícil', elementId: 'minotauroImg', baseHp: 210, baseDmg: 14, defense: 6, evasion: 0, gold: [30, 45] }, 'Serpente': { name: 'Serpente', tier: 'Difícil', elementId: 'serpeImg', baseHp: 175, baseDmg: 18, defense: 4, evasion: 12, gold: [35, 55] }, 'Lich': { name: 'Lich', tier: 'Difícil', elementId: 'lichImg', baseHp: 180, baseDmg: 22, defense: 5, evasion: 8, gold: [40, 60] }, 'Dragao': { name: 'Dragão', tier: 'Difícil', elementId: 'dragaoImg', baseHp: 230, baseDmg: 20, defense: 7, evasion: 5, gold: [45, 65] }, 'Arcanjo30': { name: 'Arcanjo', id: 'Arcanjo30', tier: 'Boss', elementId: 'arcanjoImg', baseHp: 1000, baseDmg: 25, defense: 8, evasion: 10, gold: [300, 300] }, 'Arcanjo60': { name: 'Arcanjo', id: 'Arcanjo60', tier: 'Boss', elementId: 'arcanjoAladoImg', baseHp: 666, baseDmg: 35, defense: 10, evasion: 15, gold: [0, 0], nextPhase: 'Diabo' }, 'Diabo': { name: 'O Diabo', id: 'Diabo', tier: 'Boss', elementId: 'diaboImg', baseHp: 2000, baseDmg: 50, defense: 15, evasion: 20, gold: [1000, 1000] }, };
-    const classDescriptions = { Maestria: "Sua magia Postura de Batalha garante que seus próximos 3 ataques sejam críticos.", Desolacao: "Sua magia Fúria Cega causa dano massivo, mas custa 20% da sua vida máxima.", Perseveranca: "Sua magia Bálsamo Protetor cura 25% da sua vida máxima e aplica regeneração." };
-    const skills = { ataque: { title: "Ataque", skills: { precision: { name: 'Precisão', desc: 'Aumenta a chance de crítico.', max: 5, cost: 1, apply: (p, l) => p.crit += 2 + l }, crit_damage: { name: 'Dano Crítico', desc: 'Aumenta o dano de acertos críticos.', max: 5, cost: 2, apply: () => {} }, double_strike: { name: 'Golpe Duplo', desc: 'Chance de atacar duas vezes.', max: 3, cost: 4, apply: () => {} }, execute: { name: 'Carrasco', desc: 'Dano extra em alvos com vida baixa.', max: 1, cost: 4, apply: () => {} }, } }, defesa: { title: "Defesa", skills: { vitality: { name: 'Vitalidade', desc: 'Aumenta seu HP máximo.', max: 10, cost: 1, apply: (p, l) => p.maxHp += 3 + (l * 2) }, fortification: { name: 'Fortificação', desc: 'Aumenta sua defesa permanentemente.', max: 5, cost: 2, apply: (p) => p.defense += 1 }, recovery: { name: 'Recuperação', desc: 'Regenera HP a cada turno.', max: 3, cost: 3, apply: () => {} }, last_stand: { name: 'Último Recurso', desc: 'Sobreviva a um golpe fatal com 1 HP.', max: 1, cost: 5, apply: () => {} }, } }, utilidade: { title: "Utilidade", skills: { gold_finder: { name: 'Caçador de Tesouros', desc: 'Encontra mais ouro.', max: 5, cost: 1, apply: () => {} }, scavenger: { name: 'Sucateiro', desc: 'Chance de achar poções após a vitória.', max: 3, cost: 2, apply: () => {} }, magic_affinity: { name: 'Afinidade Mágica', desc: 'Reduz a recarga da sua magia.', max: 2, cost: 5, apply: () => {} }, } } };
-    const storyEvents = { 1: { title: 'O Início', text: 'Você adentra a masmorra. Um ar pesado e antigo preenche seus pulmões. A lenda do tesouro no final o impulsiona, mas sussurros nas paredes falam de um "Guardião" amaldiçoado.', choices: [{ text: 'Continuar', cb: () => 'Você ignora os avisos. A glória o aguarda.' }] }, 2: { title: 'Primeiros Sinais', text: 'Em uma parede, um entalhe rústico mostra uma figura alada com uma lágrima caindo do olho. Abaixo, a palavra "traído".', choices: [{ text: 'Examinar', cb: () => 'O entalhe é antigo. Quem o fez sentia grande tristeza.' }] }, 5: { title: 'Diário de um Viajante', text: 'Você encontra um diário. "Andar 5: O guardião... O Arcanjo... Ele não me atacou. Apenas me olhou com uma tristeza infinita. A corrupção o está consumindo."', choices: [{ text: 'Ler mais', cb: () => { state.player.storyFlags.knowsAngelIsSad = true; return 'Você guarda o diário. A história parece mais complexa do que uma simples caça ao tesouro.'; } }] }, 10: { title: 'O Cultista', text: 'Um homem em vestes escuras murmura: "O Selo enfraquece... O Mestre logo estará livre... O Arcanjo falhará..."', choices: [{ text: 'Confrontá-lo', cb: () => 'Ele ri maniacamente e se joga em um abismo. Suas palavras ecoam em sua mente.' }, { text: 'Observar', cb: () => { state.player.storyFlags.knowsAboutSeal = true; return { text: 'Você ouve sobre um "Selo" e um "Mestre". O Arcanjo parece ser mais um carcereiro do que um monstro.', next: () => showEvent(storyEvents[11])}; } }] }, 11: { title: 'O Selo', text: 'As palavras do cultista o fazem pensar. Se o Arcanjo é um carcereiro, o que ele aprisiona? E por que o selo está enfraquecendo?', choices: [{ text: 'Procurar respostas', cb: () => 'Você decide que precisa entender a verdade antes de prosseguir cegamente.'}] }, 15: { title: 'A Visão', text: 'Você toca um cristal pulsante e sua mente é inundada. Você vê o Arcanjo, luminoso, forjando um selo para aprisionar uma sombra vasta e disforme. A sombra sussurra: "Eu vou te quebrar por dentro..."', choices: [{ text: 'Recuar', cb: () => 'A visão o deixa abalado, mas agora você entende o fardo do Arcanjo.' }] }, 20: { title: 'Sussurros da Sombra', text: 'Uma voz gélida ecoa em sua mente: "Aventureiro tolo... Cada passo seu me fortalece. Ao lutar contra as criaturas aqui, você alimenta minha prisão com desespero."', choices: [{ text: 'Ignorar a voz', cb: () => 'Você se concentra, afastando a presença maligna de sua mente.' }] }, 25: { title: 'O Altar Despedaçado', text: 'Você encontra um altar dedicado ao Arcanjo, mas ele está em ruínas, coberto por uma gosma escura que pulsa.', choices: [{ text: 'Limpar o altar', cb: () => { state.player.hp = Math.min(state.player.maxHp, state.player.hp + 50); return 'Ao tocar o altar, uma luz fraca o purifica, curando suas feridas. (+50 HP)'; } }] }, 29: { title: 'O Portão do Guardião', text: 'Um portão imenso bloqueia seu caminho. A imagem de um ser sem asas está gravada nele. A porta se abre lentamente.', choices: [{ text: 'Entrar', cb: () => 'O ar se torna pesado. Você sente um poder imenso e conflituoso à frente.' }] }, 31: { title: 'O Selo Rachado', text: 'Após a batalha, você vê o grande selo que o Arcanjo guardava. A luta o danificou, e uma rachadura vaza energia escura.', choices: [{ text: 'Tocar a rachadura', cb: () => { if(!state.player.isInvincible) state.player.hp -= 20; return 'A energia o queima. O mal que vaza é potente. (-20 HP)'; } }, { text: 'Seguir em frente', cb: () => 'Você decide não mexer com forças que não compreende.' }] }, 40: { title: 'O Lamento do Arcanjo', text: 'Um eco fantasmagórico ressoa: "...falhei... o selo... não vai aguentar... fuja..."', choices: [{ text: 'Ouvir', cb: () => 'É o aviso final do espírito do Arcanjo, antes de ser totalmente consumido.' }] }, 45: { title: 'Fragmento de Luz', text: 'Você encontra um pequeno fragmento que emana a mesma luz do Arcanjo. Ele parece chamá-lo.', choices: [{ text: 'Pegar o fragmento', cb: () => { state.player.dmg += 5; state.player.storyFlags.hasLightFragment = true; return 'Você sente uma força pura fluindo em você. (+5 Dano Permanente)'; } }] }, 50: { title: 'O Coração da Masmorra', text: 'A escuridão é quase total. A energia maligna é sufocante. Você sente que está no ninho da besta.', choices: [{ text: 'Preparar-se', cb: () => 'Você afia sua lâmina. O fim está próximo.' }] }, 55: { title: 'A Última Mensagem', text: 'Gravado no chão, a última mensagem do Arcanjo: "Não me lamente. Destrua o que eu me tornei, e destrua Aquele que eu falhei em conter."', choices: [{ text: 'Assentir', cb: () => { state.player.storyFlags.finalResolve = true; return 'Com determinação, você avança para o confronto final.'; } }] }, 59: { title: 'O Trono Vazio', text: 'Você chega a uma vasta câmara com um trono no centro. A figura alada do Arcanjo desce dos céus, seus olhos queimando com fogo profano.', choices: [{ text: 'Enfrentar seu destino', cb: () => 'A batalha final começa.' }] }, };
-    const uniqueNPCEvents = [ { id: 'goblin_merchant', title: "Mercador Goblin", text: "Um goblin com um casaco esfarrapado oferece um item. 'Troca, troca?'", choices: [ { text: "Comprar Poção (25 Ouro)", cb: () => { if(state.gold >= 25){ state.gold -= 25; state.player.potions++; return "Você comprou a poção. Parece legítima. (+1 Poção)"; } else { return "Você não tem ouro suficiente."; } } }, { text: "Recusar", cb: () => "O goblin dá de ombros e desaparece nas sombras." } ] }, { id: 'friendly_ghost', title: "Fantasma Amigável", text: "Um espectro translúcido flutua à sua frente. 'Cuidado... o mal se aprofunda...'", choices: [ { text: "Ouvir sua história", cb: () => "Ele fala de um grande herói traído, agora um carcereiro de sua própria prisão. A história o entristece." }, { text: "Atacar", cb: () => "Sua arma passa através dele. O fantasma suspira e desaparece." } ] }, { id: 'ghost_blacksmith', title: "O Ferreiro Fantasma", text: "Uma bigorna etérea brilha. Uma voz ecoa: 'Deixe-me afiar sua lâmina... por um preço.'", choices: [ { text: "Pagar com HP (-10% Max HP)", cb: () => { const cost = Math.round(state.player.maxHp * 0.1); if(!state.player.isInvincible) state.player.hp -= cost; state.player.dmgUpgrade++; return `A lâmina brilha com poder. (-${cost} HP, +1 Melhoria de Dano)`; } }, { text: "Recusar a oferta", cb: () => "A visão desaparece." } ] }, { id: 'wise_hermit', title: "O Sábio Eremita", text: "Um velho oferece um conselho: 'A verdadeira força não está no golpe, mas na resistência.'", choices: [ { text: "Ouvir", cb: () => { state.player.maxHp += 10; state.player.hp += 10; return "Suas palavras o inspiram. (+10 HP Máximo)"; } }, { text: "Ignorar", cb: () => "Você não tem tempo para enigmas." } ] }, ];
-    const repeatableEvents = [ { title: "Inscrição Rúnica", text: "Você encontra uma runa brilhante na parede.", choices: [ { text: 'Tocar na runa', cb: () => { if(Math.random() > 0.5){ state.player.hp = Math.min(state.player.maxHp, state.player.hp + 25); return 'Uma energia quente flui para você! (+25 HP)'; } else { if(!state.player.isInvincible) state.player.hp -= 15; return 'A runa explode em energia selvagem! (-15 HP)'; } } }, { text: 'Deixar para lá', cb: () => 'Você decide não mexer com magia desconhecida.' } ] }, { title: "Baú Suspeito", text: "Um baú de madeira está no centro da sala.", choices: [ { text: "Abrir", cb: () => { if(Math.random() > 0.4){ state.gold += 100; return "É o seu dia de sorte! (+100 Ouro)"; } else { return "É uma armadilha! O baú morde sua mão e desaparece."; } } }, { text: "Ignorar", cb: () => "Você desconfia de uma armadilha e deixa o baú intocado." } ] }, { title: "Fonte Curativa", text: "Uma pequena fonte de água cristalina murmura em um canto.", choices: [ { text: "Beber a água", cb: () => { state.player.hp = state.player.maxHp; return "A água restaura completamente sua vida!"; } }, { text: "Lavar o rosto", cb: () => { state.player.hp = Math.min(state.player.maxHp, state.player.hp + 15); return "A água é refrescante. (+15 HP)"; } } ] }, { title: "Altar Esquecido", text: "Um altar de pedra antigo está coberto de poeira.", choices: [ { text: "Rezar no altar", cb: () => { state.player.buff = { type: 'defense', turns: 5 }; return "Você sente uma bênção protetora sobre você. (+Defesa por 5 turnos)"; } }, { text: "Deixar uma oferenda (10 Ouro)", cb: () => { if(state.gold >= 10){ state.gold -= 10; state.player.crit += 2; return "O altar brilha brevemente. Você se sente mais sortudo. (+2% Crítico Permanente)"; } else { return "Você não tem nada para oferecer."; } } } ] }, { title: "Cogumelos Brilhantes", text: "Uma clareira é iluminada por cogumelos bioluminescentes.", choices: [ { text: "Comer um cogumelo", cb: () => { if(Math.random() > 0.5){ state.player.hp = Math.min(state.player.maxHp, state.player.hp + 30); return "Delicioso e revigorante! (+30 HP)"; } else { if(!state.player.isInvincible) state.player.hp -= 20; return "Um gosto terrível e tontura! (-20 HP)"; } } }, { text: "Apenas observar", cb: () => "A visão é bela e calmante." } ] }, { title: "Silêncio Opressor", text: "Esta sala é completamente silenciosa. Um sentimento de pavor cresce em você.", choices: [ { text: "Avançar rapidamente", cb: () => "Você atravessa a sala, o coração batendo forte, mas nada acontece." }, { text: "Avançar com cautela", cb: () => { state.gold += 20; return "Sua cautela é recompensada. Você encontra 20 de ouro caídos no chão." } } ] }, { title: "O Labirinto Ilusório", text: "As paredes parecem se mover. Você está perdido.", choices: [ { text: "Seguir pela direita", cb: () => { state.player.potions++; return "Você encontra a saída rapidamente e uma poção esquecida. (+1 Poção)"; } }, { text: "Seguir pela esquerda", cb: () => { if(!state.player.isInvincible) state.player.hp -= 10; return "Você anda em círculos e se cansa. (-10 HP)"; } } ] }, { title: "Poça de Mercúrio", text: "Uma poça de metal líquido prateado ondula no chão.", choices: [ { text: "Tocar", cb: () => { state.player.defense++; return "O metal reveste sua armadura, tornando-a mais resistente. (+1 Defesa Permanente)"; } }, { text: "Contornar", cb: () => "Você sabiamente evita o líquido misterioso." } ] }, { title: "Armadilha de Dardos", text: "Você pisa em uma placa de pressão e ouve um 'click'.", choices: [ { text: "Esquivar!", cb: () => { if(Math.random() > 0.3){ return "Você se joga no chão a tempo. Por pouco!"; } else { if(!state.player.isInvincible) state.player.hp -= 25; return "Tarde demais! Um dardo atinge você. (-25 HP)"; } } }, { text: "Bloquear com escudo!", cb: () => { if(state.player.shield > 0){ state.player.shield--; return "Você levanta o escudo e bloqueia os dardos. (-1 Carga de Escudo)"; } else { if(!state.player.isInvincible) state.player.hp -= 25; return "Você não tem escudo! (-25 HP)"; } } } ] }, { title: "Cadáver de um Aventureiro", text: "Você encontra o corpo de alguém que não teve a mesma sorte.", choices: [ { text: "Pegar seus pertences", cb: () => { const goldFound = Math.floor(Math.random() * 40) + 10; state.gold += goldFound; return `Você encontra uma bolsa com ${goldFound} de ouro.`; } }, { text: "Prestar respeito", cb: () => "Você faz uma breve pausa. Que ele descanse em paz." } ] }, { title: "O Espelho da Alma", text: "Um espelho ornamentado reflete uma versão sombria de você.", choices: [ { text: "Quebrar o espelho", cb: () => { if(!state.player.isInvincible) state.player.hp -= 10; state.player.crit += 2; return "Fragmentos cortam você, mas a imagem sombria se foi. (-10 HP, +2% Crítico)"; } }, { text: "Encarar seu reflexo", cb: () => { state.player.defense++; return "Você aceita suas falhas e se torna mais resiliente. (+1 Defesa)"; } } ] }, ];
-    function saveGame() { localStorage.setItem('battleGameSave', JSON.stringify(state)); }
-    function loadGame() { try { const savedState = JSON.parse(localStorage.getItem('battleGameSave')); if (savedState && typeof savedState === 'object') { state = savedState; return true; } } catch (e) { console.error("Falha ao carregar o jogo salvo.", e); clearSave(); } return false; }
-    function clearSave() { localStorage.removeItem('battleGameSave'); }
-    function continueGame() { if (state.player.hp <= 0 && !state.player.isInvincible) { clearSave(); uiElements.endingText.textContent = `Sua jornada termina no andar ${state.level}. A escuridão consumiu o mundo...`; showScreen('gameOverScreen', false); return; } if (state.currentScreen === 'battleScreen') { document.querySelectorAll('.enemy-svg').forEach(img => img.classList.remove('active')); if(state.enemy.elementId) document.getElementById(state.enemy.elementId).classList.add('active'); } uiElements.magicFill.style.backgroundColor = classColors[state.player.class]; refreshAllUIs(); showScreen(state.currentScreen, false); if (state.currentScreen === 'eventScreen') { const eventData = storyEvents[state.level] || uniqueNPCEvents.find(e => e.id === state.lastUniqueEvent) || repeatableEvents[0]; showEvent(eventData); } }
-    function checkForSave() { if (localStorage.getItem('battleGameVictory')) { enterKingdomMode(false); } const startHint = uiElements.startHint; if (localStorage.getItem('battleGameSave')) { startHint.textContent = 'TOQUE PARA CONTINUAR'; } else { startHint.textContent = 'TOQUE PARA JOGAR'; } }
-    function refreshAllUIs() { refreshUI(); updateShopUI(); updateSkillUI(); }
-    function setBodyBackground(screenName) { let background; const isVictory = localStorage.getItem('battleGameVictory'); if (isVictory) { background = 'linear-gradient(180deg, #000000 0%, var(--blue-dark) 100%)'; } else { const backgrounds = { menuScreen: 'linear-gradient(180deg, #000000 0%, var(--red-dark) 100%)', classScreen: 'linear-gradient(180deg, #2b0707 0%, #061233 100%)', battleScreen: 'linear-gradient(180deg, rgba(43, 7, 7, 0.9) 0%, rgba(0,0,0,1) 50%, rgba(6, 18, 51, 0.9) 100%)', gameOverScreen: 'linear-gradient(180deg, #000 0%, var(--red-dark) 100%)', shopScreen: 'linear-gradient(180deg, #061233 0%, #1a0633 100%)', eventScreen: 'linear-gradient(180deg, #1d1a3b 0%, #000 100%)' }; background = backgrounds[screenName] || 'linear-gradient(180deg, #000000 0%, var(--red-dark) 100%)'; } document.body.style.background = background; }
-    function showScreen(screenId, doSave = true) { if(screenId !== 'menuScreen') playSound('click'); document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); const screen = document.getElementById(screenId); if(screen) screen.classList.add('active'); setBodyBackground(screenId); switch(screenId) { case 'menuScreen': musicController.play('theme'); break; case 'classScreen': case 'shopScreen': case 'eventScreen': musicController.play('menu'); break; case 'gameOverScreen': musicController.stop(); break; } if (doSave) { state.currentScreen = screenId; saveGame(); } }
-    function previewClass(className, color, btnElement) { selectedClass = { name: className, color: color }; const classTitle = uiElements.classPreviewTitle; classTitle.textContent = className; classTitle.style.color = color; classTitle.classList.add('visible'); document.querySelectorAll('.class-btn').forEach(btn => btn.classList.remove('selected')); btnElement.classList.add('selected'); document.querySelector('.class-selector').classList.add('preview-mode'); let desc = classDescriptions[className]; const specialMoves = ["Postura de Batalha", "Fúria Cega", "Bálsamo Protetor"]; specialMoves.forEach(move => { if (desc.includes(move)) { desc = desc.replace(move, `<span style="color:${color}; font-weight:bold;">${move}</span>`); } }); uiElements.classInfo.innerHTML = desc; const confirmBtn = uiElements.confirmClassBtn; confirmBtn.style.display = 'block'; confirmBtn.style.backgroundColor = color; }
-    function confirmClass() { if (selectedClass.name) { playSound('confirm_action'); uiElements.confirmClassBtn.style.background = ''; chooseClass(selectedClass.name, selectedClass.color); } }
-    function resetClassSelection() { document.querySelectorAll('.class-btn').forEach(btn => btn.classList.remove('selected')); document.querySelector('.class-selector').classList.remove('preview-mode'); uiElements.classInfo.textContent = 'Selecione uma classe para ver seus detalhes.'; uiElements.confirmClassBtn.style.display = 'none'; uiElements.classPreviewTitle.classList.remove('visible'); selectedClass = { name: null, color: null }; }
-    function showTab(tabId) { uiElements.shopTab.style.display = tabId === 'shopTab' ? 'flex' : 'none'; uiElements.skillTab.style.display = tabId === 'skillTab' ? 'flex' : 'none'; const activeTab = document.querySelector('.tab-btn.active'); if (activeTab) activeTab.classList.remove('active'); const newActiveTab = document.querySelector(`.tab-btn[onclick*="${tabId}"]`); if(newActiveTab) newActiveTab.classList.add('active'); }
-    function chooseClass(cls, color){ const isInvincible = state.player.isInvincible; const hasHitKill = state.player.hasHitKill; state = deepCopy(initialState); state.player.isInvincible = isInvincible; state.player.hasHitKill = hasHitKill; state.player.class = cls; if(cls === 'Maestria'){ state.player.crit = 25; state.player.dmg = 13; state.magic.cdMax = 5; state.player.critMultiplier = 1.75; } else if(cls === 'Desolacao'){ state.player.crit = 5; state.player.dmg = 17; state.magic.cdMax = 4; } else if(cls === 'Perseveranca'){ state.player.maxHp = 140; state.player.hp = 140; state.player.shieldMax = 3; state.player.shield = 3; state.player.potions = 3; state.magic.cdMax = 6; } uiElements.magicFill.style.backgroundColor = color; state.level = 1; showScreen('eventScreen'); showEvent(storyEvents[1]); }
-    function spawnEnemy(enemyId){ let enemyTemplate; if (enemyId) { enemyTemplate = deepCopy(enemyMap[enemyId]); } else { hasUsedLastStand = false; let availableTiers = []; if (state.level <= 10) availableTiers.push('Fácil'); if (state.level >= 8 && state.level <= 40) availableTiers.push('Médio'); if (state.level >= 22) availableTiers.push('Difícil'); const chosenTier = availableTiers[Math.floor(Math.random() * availableTiers.length)]; let availableEnemies = Object.values(enemyMap).filter(e => e.tier === chosenTier); if (availableEnemies.length > 1 && state.lastEnemyName) { const filteredEnemies = availableEnemies.filter(e => e.name !== state.lastEnemyName); if (filteredEnemies.length > 0) { availableEnemies = filteredEnemies; } } enemyTemplate = deepCopy(availableEnemies[Math.floor(Math.random() * availableEnemies.length)]); } document.querySelectorAll('.enemy-svg').forEach(img => img.classList.remove('active')); document.getElementById(enemyTemplate.elementId).classList.add('active'); state.enemy = { ...enemyTemplate }; if (enemyTemplate.tier !== 'Boss') { const floor = state.level; let hpMultiplier, dmgMultiplier; if (floor <= 30) { hpMultiplier = 1 + (floor - 1) * 0.08; dmgMultiplier = 1 + (floor - 1) * 0.07; } else { const post30floor = floor - 30; const baseMultiplier30 = 1 + 29 * 0.08; hpMultiplier = baseMultiplier30 + post30floor * 0.11; dmgMultiplier = (1 + 29 * 0.07) + post30floor * 0.1; } state.enemy.hp = Math.round(enemyTemplate.baseHp * hpMultiplier); state.enemy.maxHp = Math.round(enemyTemplate.baseHp * hpMultiplier); state.enemy.dmg = Math.round(enemyTemplate.baseDmg * dmgMultiplier); } else { state.enemy.hp = enemyTemplate.baseHp; state.enemy.maxHp = enemyTemplate.baseHp; state.enemy.dmg = enemyTemplate.baseDmg; } if (state.enemy.tier === 'Boss') { if (state.level === 30) musicController.play('boss1'); else if (state.level === 60 && state.enemy.nextPhase) musicController.play('boss2'); else musicController.play('boss3'); } else { switch(state.enemy.tier) { case 'Fácil': musicController.play('battleEasy'); break; case 'Médio': musicController.play('battleMedium'); break; case 'Difícil': musicController.play('battleHard'); break; } } const enemyHpBar = uiElements.enemyInner; enemyHpBar.classList.remove('devil-hp'); if (state.enemy.id === 'Diabo') { enemyHpBar.classList.add('devil-hp'); } state.magic.cd = 0; isShielding = false; isPlayerTurn = true; let logMessage = `${state.enemy.name} apareceu!`; if (state.enemy.name === 'Arcanjo') { logMessage = `<span style="color: var(--gold);">${state.enemy.name} apareceu!</span>`; } writeLog(logMessage); state.lastEnemyName = state.enemy.name; refreshUI(); }
-    function pct(val, max) { return Math.max(0, Math.min(100, (val / max) * 100)); }
-    function updateText(element, newText) { if(!element) return; if (uiCache[element.id] !== newText) { element.textContent = newText; uiCache[element.id] = newText; } }
-    function updateWidth(element, newWidth) { if(!element) return; const newWidthStr = newWidth + '%'; if (uiCache[element.id] !== newWidthStr) { element.style.width = newWidthStr; uiCache[element.id] = newWidthStr; } }
-    function refreshUI(){ const { player, enemy, level, gold, magic } = state; if (player.isInvincible) player.hp = player.maxHp; const tierClass = `tier-${enemy.tier.replace(' ', '-')}`; const nameColor = enemy.id === 'Diabo' ? 'var(--red)' : (enemy.name === 'Arcanjo' ? 'var(--gold)' : '#fff'); const enemyNameHTML = `<span style="color: ${nameColor};">${enemy.name.toUpperCase()}</span> <span class="${tierClass}">(${enemy.tier})</span>`; if (uiElements.enemyNameLabel && uiCache.enemyNameHTML !== enemyNameHTML) { uiElements.enemyNameLabel.innerHTML = enemyNameHTML; uiCache.enemyNameHTML = enemyNameHTML; } const enemyHpPct = pct(enemy.hp, enemy.maxHp); updateWidth(uiElements.enemyInner, enemyHpPct); updateText(uiElements.enemyInner, `HP: ${Math.max(0, enemy.hp)}/${enemy.maxHp}`); const playerHpPct = pct(player.hp, player.maxHp); updateWidth(uiElements.playerInner, playerHpPct); updateText(uiElements.playerInner, `HP: ${Math.max(0, player.hp)}/${player.maxHp}`); const shieldPct = player.shieldMax > 0 ? pct(player.shield, player.shieldMax) : 0; updateWidth(uiElements.shieldFill, shieldPct); updateText(uiElements.shieldMeta, `${player.shield}/${player.shieldMax}`); updateText(uiElements.potionMeta, player.potions); updateText(uiElements.levelDisplay, `ANDAR: ${level}`); updateText(uiElements.goldBattle, `OURO: ${gold}$`); updateText(uiElements.skillPointBattle, `SKILLS: ${player.skillPoints}`); const magicPct = 100 - pct(magic.cd, magic.cdMax - (player.skills.magic_affinity?.level || 0)); updateWidth(uiElements.magicFill, magicPct); let statusHTML = ''; if (player.hasHitKill) statusHTML += `<span class="status-icon" style="color: var(--red); font-weight: bold;">[HIT KILL]</span>`; if (player.isInvincible) statusHTML += `<span class="status-icon" style="color: var(--gold); font-weight: bold;">[INVENCÍVEL]</span>`; if (player.buff.type) statusHTML += `<span class="status-icon">${player.buff.type.toUpperCase()}: ${player.buff.turns}</span>`; if (uiElements.playerStatusIcons && uiCache.statusHTML !== statusHTML) { uiElements.playerStatusIcons.innerHTML = statusHTML; uiCache.statusHTML = statusHTML; } const gameOver = (player.hp <= 0 && !player.isInvincible) || enemy.hp <= 0; if(uiElements.atkBtn) uiElements.atkBtn.disabled = gameOver || !isPlayerTurn; if(uiElements.shieldBtn) uiElements.shieldBtn.disabled = gameOver || !isPlayerTurn || player.shield <= 0; if(uiElements.potionBtn) uiElements.potionBtn.disabled = gameOver || !isPlayerTurn || player.potions <= 0 || player.hp >= player.maxHp; if(uiElements.magicBtn) uiElements.magicBtn.disabled = gameOver || !isPlayerTurn || magic.cd > 0; }
-    const shopItemsConfig = { 'potion': { getCost: (s) => shopPrices.potion + Math.floor(s.level / 6) * 4, canBuy: (s) => true, onPurchase: (s) => s.player.potions++, updateSubtext: (s) => `Recupera ${35 + (s.player.potionUpgrade * 10)} HP` }, 'shield': { getCost: (s) => shopPrices.shield + Math.floor(s.level / 7) * 5, canBuy: (s) => s.player.shield < s.player.shieldMax, onPurchase: (s) => s.player.shield++, }, 'upgrade': { getCost: (s) => shopPrices.upgrade + Math.pow(s.player.dmgUpgrade, 2) * 6 + Math.floor(s.level / 5) * 10, canBuy: (s) => true, onPurchase: (s) => s.player.dmgUpgrade++, updateSubtext: (s) => `+${3 + Math.floor(s.player.dmgUpgrade / 2)} de Dano` }, 'armor': { getCost: (s) => shopPrices.armor + s.player.armorUpgrade * 22 + Math.floor(s.level / 7) * 8, canBuy: (s) => true, onPurchase: (s) => { s.player.armorUpgrade++; s.player.defense++; }, }, 'maxShield': { getCost: (s) => shopPrices.maxShield + (s.player.shieldMax - 2) * 60, canBuy: (s) => true, onPurchase: (s) => { s.player.shieldMax++; s.player.shield = s.player.shieldMax; }, }, 'potionUpgrade': { getCost: (s) => shopPrices.potionUpgrade + s.player.potionUpgrade * 40, canBuy: (s) => true, onPurchase: (s) => s.player.potionUpgrade++, } };
-    function updateShopUI() { updateText(uiElements.shopGoldDisplay, `OURO: ${state.gold}$`); updateText(uiElements.skillPointDisplay, `PONTOS: ${state.player.skillPoints}`); for (const itemId in shopItemsConfig) { const config = shopItemsConfig[itemId]; const button = uiElements.shopButtons[itemId]; if (!button) continue; const cost = config.getCost(state); button.querySelector('.price').textContent = `${cost}$`; button.disabled = state.gold < cost || !config.canBuy(state); const subtextElem = button.querySelector('.btn-subtext'); if (config.updateSubtext && subtextElem) { subtextElem.textContent = config.updateSubtext(state); } } }
-    function buyItem(itemId, btnElement) { const config = shopItemsConfig[itemId]; if (!config) return; const cost = config.getCost(state); if (state.gold >= cost && config.canBuy(state)) { state.gold -= cost; config.onPurchase(state); playSound('purchase'); btnElement.classList.add('purchased'); setTimeout(() => btnElement.classList.remove('purchased'), 500); updateShopUI(); } }
-    function updateSkillUI() { const container = document.querySelector('.skill-items'); if(!container) return; container.innerHTML = ''; for (const treeKey in skills) { const tree = skills[treeKey]; const treeDiv = document.createElement('div'); treeDiv.className = 'skill-tree'; treeDiv.innerHTML = `<h3>${tree.title}</h3>`; for (const key in tree.skills) { const skill = tree.skills[key]; const currentLevel = state.player.skills[key]?.level || 0; const canBuy = state.player.skillPoints >= skill.cost && currentLevel < skill.max; const btn = document.createElement('button'); btn.className = 'btn skill-btn'; btn.disabled = !canBuy; btn.onclick = () => buySkill(treeKey, key, btn); btn.innerHTML = `<div class="btn-text">${skill.name} <span class="btn-subtext">${skill.desc} (${currentLevel}/${skill.max})</span></div><span class="price">Custo: ${skill.cost}P</span>`; treeDiv.appendChild(btn); } container.appendChild(treeDiv); } }
-    function writeLog(msg){ if(uiElements.logText) uiElements.logText.innerHTML = msg; }
-    function toggleActionButtons(enable) { isPlayerTurn = enable; refreshUI(); }
-    function showInfoPopup(text, color = 'var(--gold)') { const container = document.getElementById('damagePopupContainer'); if(!container) return; const popup = document.createElement('div'); popup.className = 'info-popup'; popup.style.setProperty('--popup-color', color); popup.textContent = text; container.appendChild(popup); setTimeout(() => popup.remove(), 1000); }
-    function checkPlayerDeath() { if (state.player.hp <= 0 && !state.player.isInvincible) { setTimeout(() => { writeLog('Você foi derrotado!'); playSound('defeat'); updateText(uiElements.gameOverTitle, 'Você Morreu!'); uiElements.gameOverTitle.style.color = 'var(--red)'; updateText(uiElements.gameOverHint, 'TOQUE PARA RECOMEÇAR'); updateText(uiElements.endingText, `Sua jornada termina no andar ${state.level}. A escuridão consumiu o mundo...`); document.getElementById('gameOverScreen').onclick = () => restartGame(); clearSave(); showScreen('gameOverScreen', false); }, 1200); return true; } return false; }
-    function triggerHitAnimation(isCrit) { const enemyImg = document.getElementById(state.enemy.elementId); if(!enemyImg) return; enemyImg.classList.remove('hit', 'crit-hit'); void enemyImg.offsetWidth; enemyImg.classList.add(isCrit ? 'crit-hit' : 'hit'); }
-    function performAttack() { if(state.player.hasHitKill) { state.enemy.hp = 0; writeLog("GOLPE FINAL."); return; } if (Math.random() * 100 < state.enemy.evasion) { playSound('dodge'); writeLog(`Você atacou, mas o inimigo <span style="color:var(--red); font-weight:bold;">ESQUIVOU!</span>`); showInfoPopup('Esquivou!', 'var(--red)'); return; } const dmgBuff = state.player.buff.type === 'damage' ? 5 + state.player.dmgUpgrade : 0; const damageFromUpgrades = (state.player.dmgUpgrade * 3) + Math.floor(Math.pow(state.player.dmgUpgrade, 2) / 4); const baseDmg = state.player.dmg + damageFromUpgrades + dmgBuff; let totalDmg = Math.max(1, (baseDmg + Math.floor(Math.random()*4)) - state.enemy.defense); const precisionBonus = (state.player.skills.precision?.level || 0) * (2 + (state.player.skills.precision?.level || 0)); let isCrit = state.player.buff.type === 'crit' || Math.random()*100 < (state.player.crit + precisionBonus); if (state.player.skills.execute?.level && (state.enemy.hp / state.enemy.maxHp) < 0.3) { totalDmg = Math.round(totalDmg * 1.2); } triggerHitAnimation(isCrit); if(isCrit){ const critDmgBonus = (state.player.skills.crit_damage?.level || 0) * 0.12; totalDmg = Math.round(totalDmg * (state.player.critMultiplier + critDmgBonus)); playSound('crit_grave'); showInfoPopup('CRÍTICO!'); playSound('crit_hit'); } else { playSound('hit'); } writeLog(`Você causou ${totalDmg} de dano.`); state.enemy.hp = Math.max(0, state.enemy.hp - totalDmg); }
-    function executePlayerAction(actionCallback, condition = true) { if (!isPlayerTurn || !condition) return; toggleActionButtons(false); actionCallback(); }
-    function playerAttack() { executePlayerAction(() => { playSound('swing'); setTimeout(() => { performAttack(); afterPlayerAction(true, true); }, 200); }); }
-    function playerShield() { executePlayerAction(() => { playSound('shield_up'); isShielding = true; const shieldDamage = Math.max(1, Math.floor(state.player.defense * 1.5) + 5); state.enemy.hp = Math.max(0, state.enemy.hp - shieldDamage); state.magic.cd = Math.max(0, state.magic.cd - 1); triggerHitAnimation(false); writeLog(`Você se defende, causa ${shieldDamage} de dano e restaura 1 ponto de Magia!`); afterPlayerAction(); }, state.player.shield > 0); }
-    function playerMagic() { executePlayerAction(() => { let msg = ''; const { player, enemy } = state; if(player.class === 'Maestria'){ playSound('magic_maestry'); player.buff = { type: 'crit', turns: 3 }; msg = `Postura de Batalha! Seus próximos 3 ataques serão críticos.`; } else if(player.class === 'Desolacao'){ playSound('magic_desolation'); const dmg = Math.round((40 + state.level * 3) - enemy.defense); const recoilDmg = Math.round(player.maxHp * 0.20); enemy.hp = Math.max(0, enemy.hp - dmg); if (!state.player.isInvincible) player.hp = Math.max(0, player.hp - recoilDmg); msg = `Fúria Cega causa ${dmg} de dano! Você sofre ${recoilDmg} em recuo.`; refreshUI(); if (checkPlayerDeath()) return; } else if(player.class === 'Perseveranca'){ playSound('magic_perseverance'); const heal = Math.round(player.maxHp * 0.25); player.hp = Math.min(player.maxHp, player.hp + heal); player.buff = { type: 'regen', turns: 3 }; msg = `Bálsamo Protetor curou ${heal} HP e aplicou regeneração!`; } writeLog(msg); state.magic.cd = state.magic.cdMax; afterPlayerAction(false); }, state.magic.cd <= 0); }
-    function playerPotion() { executePlayerAction(() => { playSound('heal'); const overlay = document.getElementById('potion-overlay'); overlay.classList.add('active'); setTimeout(() => overlay.classList.remove('active'), 1500); state.player.potions--; const heal = 35 + (state.player.potionUpgrade * 10); state.player.hp = Math.min(state.player.maxHp, state.player.hp + heal); writeLog(`Você usou uma poção e recuperou ${heal} HP.`); afterPlayerAction(false); }, state.player.potions > 0 && state.player.hp < state.player.maxHp); }
-    function buySkill(treeKey, skillKey, btnElement) { const skill = skills[treeKey].skills[skillKey]; if (!state.player.skills[skillKey]) { state.player.skills[skillKey] = { level: 0 }; } const currentLevel = state.player.skills[skillKey].level; if (state.player.skillPoints >= skill.cost && currentLevel < skill.max) { state.player.skillPoints -= skill.cost; state.player.skills[skillKey].level++; skill.apply(state.player, state.player.skills[skillKey].level); playSound('confirm_action'); btnElement.classList.add('purchased'); setTimeout(() => btnElement.classList.remove('purchased'), 500); } updateShopUI(); updateSkillUI(); }
-    function showPostBattleEvent() { let eventToShow = storyEvents[state.level]; if (!eventToShow) { const availableUniqueEvents = uniqueNPCEvents.filter(e => !state.player.encounteredNPCs.includes(e.id)); if (availableUniqueEvents.length > 0 && Math.random() < 0.4) { eventToShow = availableUniqueEvents[Math.floor(Math.random() * availableUniqueEvents.length)]; state.player.lastUniqueEvent = eventToShow.id; state.player.encounteredNPCs.push(eventToShow.id); } else { eventToShow = repeatableEvents[Math.floor(Math.random() * repeatableEvents.length)]; delete state.player.lastUniqueEvent; } } showScreen('eventScreen'); showEvent(eventToShow); }
-    function showEvent(event) { if (!event) return; updateText(uiElements.eventTitle, event.title); updateText(uiElements.eventText, event.text); const choicesContainer = uiElements.eventChoices; choicesContainer.innerHTML = ''; event.choices.forEach(choice => { const btn = document.createElement('button'); btn.className = 'btn choice-btn'; btn.textContent = choice.text; btn.onclick = () => { playSound('click'); resolveEventChoice(choice); }; choicesContainer.appendChild(btn); }); }
-    function resolveEventChoice(choice) { const result = choice.cb(); let nextAction = goToShop; let resultText = result; if (typeof result === 'object' && result.text && result.next) { resultText = result.text; nextAction = result.next; } updateText(uiElements.eventText, resultText); refreshUI(); if (checkPlayerDeath()) { uiElements.eventChoices.innerHTML = ''; } else { uiElements.eventChoices.innerHTML = ''; const continueBtn = document.createElement('button'); continueBtn.className = 'continue-btn'; continueBtn.textContent = 'Continuar'; continueBtn.onclick = nextAction; uiElements.eventChoices.appendChild(continueBtn); } }
-    function goToShop() { showTab('shopTab'); updateShopUI(); updateSkillUI(); showScreen('shopScreen'); }
-    function goToNextBattle() { state.level++; if (state.level === 30) spawnEnemy('Arcanjo30'); else if (state.level === 60) spawnEnemy('Arcanjo60'); else spawnEnemy(); showScreen('battleScreen'); }
-    function tickRegenBuffs() { const { buff, skills } = state.player; let regenMsg = ''; const recoveryBonus = skills.recovery?.level || 0; if (buff.type === 'regen' && buff.turns > 0) { const regenAmt = 5 + recoveryBonus; state.player.hp = Math.min(state.player.maxHp, state.player.hp + regenAmt); regenMsg = `Você regenerou ${regenAmt} HP. `; buff.turns--; } else if (recoveryBonus > 0 && state.player.hp < state.player.maxHp) { state.player.hp = Math.min(state.player.maxHp, state.player.hp + recoveryBonus); } if(buff.turns === 0) { buff.type = null; } return regenMsg; }
-    function afterPlayerAction(passTurn = true, wasAttack = false){ if (wasAttack && state.player.buff.turns > 0 && (state.player.buff.type === 'crit' || state.player.buff.type === 'damage')) { state.player.buff.turns--; } if (state.player.buff.turns === 0) { state.player.buff.type = null; } refreshUI(); if (checkPlayerDeath()) return; saveGame(); if(state.enemy.hp <= 0){ if (state.enemy.nextPhase) { toggleActionButtons(false); writeLog(`<span style="color: var(--red);">${state.enemy.name} foi derrotado... Mas o verdadeiro mal desperta!</span>`); setTimeout(() => { playSound('boss_transform'); document.getElementById('feedback-overlay').classList.add('flash-boss'); setTimeout(() => { spawnEnemy(state.enemy.nextPhase); writeLog(`<span style="color: var(--red);">${state.enemy.name} APARECEU!</span>`); toggleActionButtons(true); document.getElementById('feedback-overlay').classList.remove('flash-boss'); }, 1500); }, 1000); return; } playSound('victory'); const [minGold, maxGold] = state.enemy.gold; const goldFinderBonus = 1 + (state.player.skills.gold_finder?.level || 0) * 0.15; let goldGained = Math.floor((Math.random() * (maxGold - minGold + 1)) + minGold + state.level * 4) * goldFinderBonus; state.gold += Math.round(goldGained); let skillPointsGained = 0; switch(state.enemy.tier) { case 'Fácil': skillPointsGained = 1; break; case 'Médio': skillPointsGained = 2; break; case 'Difícil': skillPointsGained = 3; break; case 'Boss': skillPointsGained = 10; break; } state.player.skillPoints += skillPointsGained; let victoryMsg = `Você derrotou ${state.enemy.name}! (+${Math.round(goldGained)} Ouro, +${skillPointsGained} Ponto(s) de Habilidade)`; const scavengerBonus = (state.player.skills.scavenger?.level || 0) * 0.1; if(Math.random() < scavengerBonus){ state.player.potions++; victoryMsg += " Você encontrou uma poção!"; } writeLog(victoryMsg); if (state.level >= 60) { localStorage.setItem('battleGameVictory', 'true'); uiElements.gameOverTitle.textContent = 'Você Venceu!'; uiElements.gameOverTitle.style.color = 'var(--blue-light)'; uiElements.gameOverHint.textContent = 'TOQUE PARA UMA NOVA JORNADA'; uiElements.endingText.innerHTML = 'Você derrotou o mal e <span style="color: var(--blue-light)">Ascendeu</span> como o <span style="color: var(--blue-light)">Rei</span> deste reino.'; document.getElementById('gameOverScreen').onclick = () => enterKingdomMode(true); showScreen('gameOverScreen', false); return; } setTimeout(() => showPostBattleEvent(), 1500); return; } if (passTurn) { setTimeout(()=> enemyTurn(), 800); } else { toggleActionButtons(true); } }
-    function enemyTurn(){ let regenMsg = tickRegenBuffs(); if (checkPlayerDeath()) return; let dmg = state.enemy.dmg + Math.floor(Math.random()*5); const defenseBonus = state.player.buff.type === 'defense' ? 5 + state.player.armorUpgrade : 0; let finalDmg = Math.max(1, dmg - (state.player.defense + defenseBonus)); let attackMsg = `O inimigo atacou e causou ${finalDmg} de dano.`; if(state.enemy.isRaged) { finalDmg = Math.round(finalDmg * 1.5); attackMsg = `Em FÚRIA, o inimigo causou ${finalDmg} de dano!`; state.enemy.isRaged = false; } if(isShielding){ state.player.shield--; attackMsg = 'O inimigo atacou — você bloqueou!'; isShielding = false; } else { if (state.player.hp - finalDmg <= 0 && state.player.skills.last_stand?.level && !hasUsedLastStand) { hasUsedLastStand = true; state.player.hp = 1; attackMsg = "Último Recurso! Você sobreviveu ao golpe fatal com 1 HP!"; } else { if (!state.player.isInvincible) { state.player.hp -= finalDmg; playSound('player_hit'); const appContainer = document.getElementById('appContainer'); const overlay = document.getElementById('damage-overlay'); appContainer.classList.add('shake-app'); overlay.classList.add('flash-active'); setTimeout(() => { appContainer.classList.remove('shake-app'); overlay.classList.remove('flash-active'); }, 500); } else { attackMsg = "O inimigo atacou, mas seu poder não arranhou você!"; } } } setTimeout(() => writeLog(regenMsg + attackMsg), 500); if(state.magic.cd > 0) state.magic.cd--; refreshUI(); if (checkPlayerDeath()) return; saveGame(); setTimeout(() => toggleActionButtons(true), 700); }
-    function restartGame() { playSound('game_start'); clearSave(); localStorage.removeItem('battleGameVictory'); state = deepCopy(initialState); resetClassSelection(); uiElements.endingText.textContent = ""; uiElements.gameOverTitle.style.color = 'var(--red)'; uiElements.mainMenuTitle.textContent = 'Battle Game'; uiElements.mainMenuTitle.style.color = 'var(--red)'; checkForSave(); showScreen('menuScreen', false); }
-    function enterKingdomMode(setFlag) { if(setFlag) localStorage.setItem('battleGameVictory', 'true'); const mainMenuTitle = uiElements.mainMenuTitle; mainMenuTitle.textContent = 'Battle Kingdom'; mainMenuTitle.style.color = 'var(--blue-light)'; document.getElementById('menuScreen').onclick = (event) => { initSfxAudio(); if (event.target.closest('.top-left-info')) { openCodeModal(); } else { showScreen('comingSoonScreen', false); } }; clearSave(); showScreen('menuScreen', false); }
-    function openCodeModal() { playSound('click'); const overlay = document.getElementById('codeOverlay'); document.getElementById('codeInput').value = ''; document.getElementById('codeError').style.display = 'none'; overlay.style.display = 'flex'; }
-    function closeCodeModal() { document.getElementById('codeOverlay').style.display = 'none'; }
-    function flashScreen(color) { const overlay = document.getElementById('feedback-overlay'); overlay.classList.remove('flash-green', 'flash-boss'); if (color === 'green') { overlay.classList.add('flash-green'); } else { overlay.classList.add('flash-active'); } setTimeout(() => overlay.classList.remove('flash-green', 'flash-active'), 500); }
-    function submitCode() { const input = document.getElementById('codeInput'); const error = document.getElementById('codeError'); const code = input.value.toUpperCase(); let successMessage = ''; switch(code) { case 'ILIYABOTINVNCVL': state.player.isInvincible = true; successMessage = 'INVENCIBILIDADE ATIVADA!'; break; case 'ILIYABOTHTKLL': state.player.hasHitKill = true; successMessage = 'HIT KILL ATIVADO!'; break; case 'ILIYABOTRSTR': state.player.isInvincible = false; state.player.hasHitKill = false; successMessage = 'CÓDIGOS RESETADOS!'; break; } if (successMessage) { playSound('code_success'); saveGame(); refreshUI(); error.textContent = successMessage; error.style.color = 'var(--green-light)'; error.style.display = 'block'; setTimeout(() => { closeCodeModal(); if (code === 'ILIYABOTRSTR') { setTimeout(() => { clearSave(); localStorage.removeItem('battleGameVictory'); location.reload(); }, 200); } }, 1500); } else { playSound('code_error'); error.textContent = 'Código inválido!'; error.style.color = 'var(--red)'; error.style.display = 'block'; } }
-    
-    // --- CORREÇÃO: Expondo as funções para o onclick do HTML ---
-    // Como o script é um "module", as funções não são globais por padrão.
-    // Precisamos anexá-las ao objeto 'window' para que o HTML as encontre.
-    Object.assign(window, {
-        closeCodeModal, submitCode, previewClass, confirmClass, playerAttack,
-        playerShield, playerPotion, playerMagic, showTab, buyItem, buySkill,
-        goToNextBattle, openCodeModal
-    });
+    loop();
+}
 
-    // --- CORREÇÃO: O antigo DOMContentLoaded é agora o ponto de partida do jogo,
-    // chamado DEPOIS que o SDK do Discord está pronto.
-    cacheDOMElements(); 
-    setBodyBackground('menuScreen');
-    const userLang = navigator.language || navigator.userLanguage; 
-    if (userLang.startsWith('pt')) { document.documentElement.lang = 'pt-BR'; } 
-    else { document.documentElement.lang = 'en'; }
-    document.documentElement.classList.add('no-scroll');
-    document.body.classList.add('no-scroll');
+// --- COMPOSITIONS ---
+
+function composeTheme(ctx) { // Main Theme
+    const bpm = 125;
+    const tracks = [
+        // Bassline
+        { type: 'square', volume: 0.15, notes: [
+            // Verse
+            {n: 'C3', d: 4}, {n: 'G2', d: 4}, {n: 'A2', d: 4}, {n: 'F2', d: 4},
+            // Chorus
+            {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'F2', d: 2},
+            {n: 'C3', d: 2}, {n: 'G2', d: 2}, {n: 'A2', d: 2}, {n: 'E2', d: 2},
+        ]},
+        // Harmony Pad
+        { type: 'triangle', volume: 0.08, notes: [
+            // Verse
+            {n: 'E4', d: 4}, {n: 'B3', d: 4}, {n: 'C4', d: 4}, {n: 'A3', d: 4},
+            // Chorus
+            {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'E4', d: 2}, {n: 'C4', d: 2},
+            {n: 'E4', d: 2}, {n: 'D4', d: 2}, {n: 'C4', d: 2}, {n: 'B3', d: 2},
+        ]},
+        // Main Melody
+        { type: 'sawtooth', volume: 0.18, notes: [
+            // Intro
+            {d: 4},
+            // Verse
+            {d: 1}, {n: 'C4', d: 1}, {n: 'E4', d: 1}, {n: 'G4', d: 1},
+            {d: 1}, {n: 'G4', d: 1}, {n: 'A4', d: 1}, {n: 'G4', d: 1},
+            {d: 1}, {n: 'A4', d: 1}, {n: 'C5', d: 1}, {n: 'B4', d: 1},
+            {d: 1}, {n: 'A4', d: 2}, {d: 1},
+            // Chorus (Refrain)
+            {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1},
+            {n: 'F5', d: 1.5}, {n: 'E5', d: 0.5}, {n: 'D5', d: 2},
+            {n: 'C5', d: 1.5}, {n: 'G4', d: 0.5}, {n: 'A4', d: 1}, {n: 'G4', d: 1},
+            {n: 'E5', d: 1.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 2},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+function composeMenu(ctx) { // Menu Music
+    const bpm = 70;
+    const tracks = [
+        // Arpeggio (Harp-like)
+        { type: 'triangle', volume: 0.2, notes: [
+            {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'E4', d: 0.5},
+            {n: 'G3', d: 0.5}, {n: 'B3', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'D4', d: 0.5}, {n: 'B3', d: 0.5},
+            {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'A4', d: 0.5}, {n: 'E4', d: 0.5}, {n: 'C4', d: 0.5},
+            {n: 'F3', d: 0.5}, {n: 'A3', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'F4', d: 0.5}, {n: 'C4', d: 0.5}, {n: 'A3', d: 0.5},
+        ]},
+        // Melody (Flute-like)
+        { type: 'sine', volume: 0.25, notes: [
+             {d: 6},
+             {n: 'C5', d: 3}, {n: 'A4', d: 3},
+             {d: 6},
+             {n: 'G4', d: 3}, {n: 'E4', d: 3},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+function composeBoss1(ctx) { // Arcanjo
+    const bpm = 130;
+    const tracks = [
+        { type: 'percussion', volume: 0.5, notes: [ {p: 'kick', d: 1}, {d:1}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5} ]},
+        { type: 'square', volume: 0.15, notes: [ {n: 'C3', d: 4}, {n: 'Ab2', d: 4}, {n: 'F2', d: 4}, {n: 'G2', d: 4} ]},
+        { type: 'sawtooth', volume: 0.2, notes: [
+            {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1},
+            {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'F5', d: 2},
+            {n: 'C5', d: 1}, {n: 'G4', d: 1}, {n: 'Eb5', d: 1}, {n: 'G4', d: 1},
+            {n: 'D5', d: 2}, {n: 'C5', d: 2},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+function composeBoss2(ctx) { // Arcanjo Alado
+    const bpm = 155;
+     const tracks = [
+        { type: 'percussion', volume: 0.55, notes: [ {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1} ]},
+        { type: 'square', volume: 0.18, notes: [ {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'F2', d: 2}, {n: 'G2', d: 2} ]},
+        { type: 'sawtooth', volume: 0.2, notes: [
+            {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5},
+            {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'F5', d: 1},
+            {n: 'C5', d: 0.5}, {n: 'G4', d: 0.5}, {n: 'Eb5', d: 0.5}, {n: 'G4', d: 0.5},
+            {n: 'D5', d: 1}, {n: 'C5', d: 1},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+function composeBoss3(ctx) { // Diabo
+    const bpm = 145;
+    const tracks = [
+        // Percussion with changing rhythm
+        { type: 'percussion', volume: 0.6, notes: [
+            // Phase 1: Ominous start
+            {p: 'kick', d: 4}, {d: 4}, {p: 'kick', d: 4}, {d: 4},
+            // Phase 2: Refrain (Full battle)
+            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
+            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
+            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
+            {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 1}, {p: 'snare', d: 1},
+            // Phase 3: Bridge (Tense break)
+            {d: 16}
+        ]},
+        // Bassline
+        { type: 'square', volume: 0.2, notes: [
+            // Phase 1
+            {n: 'C2', d: 8}, {n: 'Gb2', d: 8},
+            // Phase 2
+            {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2},
+            {n: 'C3', d: 2}, {n: 'Ab2', d: 2}, {n: 'Db3', d: 2}, {n: 'G2', d: 2},
+            // Phase 3
+            {n: 'B2', d: 8}, {n: 'F2', d: 8},
+        ]},
+        // Melody
+        { type: 'sawtooth', volume: 0.2, notes: [
+            // Phase 1
+            {d: 4}, {n: 'Db4', d: 2}, {n: 'C4', d: 2}, {d: 8},
+            // Phase 2 (Refrain)
+            {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2},
+            {n: 'Gb5', d: 1}, {n: 'Db5', d: 1}, {n: 'C5', d: 2},
+            {n: 'C5', d: 1}, {n: 'Ab4', d: 1}, {n: 'G4', d: 2},
+            {n: 'F5', d: 1}, {n: 'G5', d: 1}, {n: 'Ab5', d: 2},
+            // Phase 3
+            {d: 4}, {n: 'A4', d: 2}, {n: 'Bb4', d: 2}, {d: 8},
+        ]}
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+// --- NOVAS COMPOSIÇÕES DE BATALHA (SOMBRIAS) ---
+
+function composeBattleEasy(ctx) {
+    const bpm = 120;
+    const tracks = [
+        { type: 'percussion', volume: 0.45, notes: [ {p: 'kick', d: 1}, {d: 1}, {p: 'snare', d: 1}, {d: 1} ]},
+        { type: 'square', volume: 0.15, notes: [
+            // Verse (Fm - Db)
+            {n: 'F2', d: 4}, {n: 'Db2', d: 4},
+            // Chorus (Ab - C)
+            {n: 'Ab2', d: 4}, {n: 'C2', d: 4},
+        ]},
+        { type: 'sawtooth', volume: 0.18, notes: [
+             // Verse
+            {n: 'F4', d: 1.5}, {n: 'Eb4', d: 0.5}, {n: 'C4', d: 2},
+            {n: 'Db4', d: 1.5}, {n: 'C4', d: 0.5}, {n: 'Ab3', d: 2},
+             // Chorus
+            {n: 'Ab4', d: 1}, {n: 'G4', d: 1}, {n: 'Ab4', d: 1}, {n: 'F4', d: 1},
+            {n: 'G4', d: 2}, {n: 'C4', d: 2},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+function composeBattleMedium(ctx) {
+    const bpm = 135;
+    const tracks = [
+        { type: 'percussion', volume: 0.5, notes: [ {p: 'kick', d: 1}, {p: 'snare', d: 1}, {p: 'kick', d: 0.5}, {d:0.5}, {p: 'snare', d: 1} ]},
+        { type: 'square', volume: 0.18, notes: [ {n: 'G2', d: 1}, {n: 'G2', d: 1}, {n: 'Eb3', d: 1}, {n: 'F3', d: 1} ]},
+        { type: 'sawtooth', volume: 0.2, notes: [
+            // Verse
+            {n: 'G4', d: 1}, {n: 'Bb4', d: 1}, {n: 'C5', d: 1}, {n: 'G4', d: 1},
+            // Chorus
+            {n: 'F5', d: 1.5}, {n: 'Eb5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'C5', d: 0.5},
+            {n: 'Bb4', d: 1}, {n: 'G4', d: 1},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+function composeBattleHard(ctx) {
+    const bpm = 150;
+    const tracks = [
+        { type: 'percussion', volume: 0.55, notes: [ {p: 'kick', d: 0.5}, {d:0.5}, {p: 'snare', d: 0.5}, {d:0.5}, {p: 'kick', d: 0.5}, {p: 'kick', d: 0.5}, {p: 'snare', d: 1} ]},
+        { type: 'sawtooth', volume: 0.2, notes: [ // Bass Ostinato
+            {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'E2', d: 0.5},
+            {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'A2', d: 0.5}, {n: 'G2', d: 0.5},
+        ]},
+        { type: 'square', volume: 0.22, notes: [
+            // Verse
+            {n: 'A4', d: 0.5}, {d:0.5}, {n: 'E5', d: 0.5}, {d:0.5}, {n: 'D5', d: 0.5}, {d:0.5}, {n: 'C5', d: 0.5},
+            // Chorus
+            {n: 'F5', d: 1}, {n: 'E5', d: 0.5}, {n: 'D5', d: 0.5}, {n: 'E5', d: 1},
+        ]},
+    ];
+    createSequencer(ctx, bpm, tracks);
+}
+
+const compositionMap = {
+    'theme': composeTheme,
+    'menu': composeMenu,
+    'battleEasy': composeBattleEasy,
+    'battleMedium': composeBattleMedium,
+    'battleHard': composeBattleHard,
+    'boss1': composeBoss1,
+    'boss2': composeBoss2,
+    'boss3': composeBoss3,
+};
+
+// --- MUSIC CONTROLLER ---
+const musicController = {
+    currentTrack: null,
+    play(trackId) {
+        if (!audioCtx) return; // ALTERAÇÃO: Não toca se o áudio não foi iniciado
+        if (this.currentTrack === trackId && audioState[trackId]?.isPlaying) {
+            return;
+        }
+        this.stop();
+        if (compositionMap[trackId]) {
+            // ALTERAÇÃO: Usa o audioCtx global em vez de criar um novo
+            audioState[trackId] = { isPlaying: true, timeoutId: null };
+            compositionMap[trackId](audioCtx);
+            this.currentTrack = trackId;
+        }
+    },
+    stop() {
+        if (this.currentTrack && audioState[this.currentTrack]?.isPlaying) {
+            clearTimeout(audioState[this.currentTrack].timeoutId);
+            // ALTERAÇÃO: Não fecha mais o context, pois ele é compartilhado. Apenas para a reprodução.
+            audioState[this.currentTrack].isPlaying = false;
+        }
+        this.currentTrack = null;
+    }
+};
+
+</script>
+
+<script>
+/* --------------- GAME LOGIC STARTS HERE --------------- */
+
+const initialState = {
+  player: { hp:120, maxHp:120, defense:0, shieldMax:2, shield:2, potions:2, dmg:14, crit:10, critMultiplier: 1.5, class:null, dmgUpgrade:0, armorUpgrade: 0, potionUpgrade: 0, skillPoints: 1, skills: {}, buff: { type: null, turns: 0 }, storyFlags: {}, encounteredNPCs: [], isInvincible: false, hasHitKill: false },
+  enemy: { name:'Goblin', elementId: 'goblinImg', hp:85, maxHp:85, dmg:7, defense: 0, evasion: 3, gold: [8,15], isRaged: false, tier: 'Fácil' },
+  magic: { cdMax:4, cd:0 },
+  gold: 50,
+  level: 0,
+  currentScreen: 'menuScreen',
+  lastEnemyName: null
+};
+const deepCopy = (obj) => JSON.parse(JSON.stringify(obj));
+let state = deepCopy(initialState);
+let isShielding = false;
+let isPlayerTurn = true;
+let hasUsedLastStand = false;
+const shopPrices = { potion: 10, shield: 10, upgrade: 30, armor: 35, maxShield: 60, potionUpgrade: 50 };
+let selectedClass = { name: null, color: null };
+const classColors = { Maestria: '#9d4edd', Desolacao: '#ff477e', Perseveranca: '#ff9e00' };
+let continueCallback = () => {};
+
+// --- OPTIMIZATION: DOM Element & UI State Caching ---
+const uiElements = {};
+const uiCache = {};
+function cacheDOMElements() {
+    const ids = [
+        'mainMenuTitle', 'startHint', 'classPreviewTitle', 'classInfo', 'confirmClassBtn',
+        'enemyNameLabel', 'levelDisplay', 'goldBattle', 'skillPointBattle', 'enemyInner',
+        'playerInner', 'shieldFill', 'shieldMeta', 'potionMeta', 'magicFill', 'atkBtn',
+        'shieldBtn', 'potionBtn', 'magicBtn', 'playerStatusIcons', 'logText', 'shopGoldDisplay',
+        'skillPointDisplay', 'eventTitle', 'eventText', 'eventChoices', 'gameOverTitle', 'gameOverHint',
+        'endingText', 'potionHealSubtext', 'upgradeDmgSubtext', 'shopTab', 'skillTab'
+    ];
+    ids.forEach(id => uiElements[id] = document.getElementById(id));
+    
+    // ALTERAÇÃO: Adicionando mais botões ao cache para event listeners
+    uiElements.shopButtons = {
+        potion: document.getElementById('buyPotionBtn'),
+        shield: document.getElementById('buyShieldBtn'),
+        upgrade: document.getElementById('buyUpgradeBtn'),
+        armor: document.getElementById('buyArmorBtn'),
+        maxShield: document.getElementById('buyMaxShieldBtn'),
+        potionUpgrade: document.getElementById('buyPotionUpgradeBtn'),
+    };
+    uiElements.shopTabBtn = document.getElementById('shopTabBtn');
+    uiElements.skillTabBtn = document.getElementById('skillTabBtn');
+    uiElements.nextFloorBtn = document.getElementById('nextFloorBtn');
+    uiElements.closeCodeBtn = document.getElementById('closeCodeBtn');
+    uiElements.confirmCodeBtn = document.getElementById('confirmCodeBtn');
+    uiElements.classButtons = document.querySelectorAll('.class-btn');
+}
+
+
+/* --- AUDIO OPTIMIZATION: Refactored Sound System --- */
+// ALTERAÇÃO: Removido sfxAudioCtx, pois agora usamos o audioCtx global
+function playTone({ freq, freqEnd, duration, type, gainValue, rampType = 'exponential' }, startTime = 0) {
+    if (!audioCtx || audioCtx.state === 'suspended') return;
+    const now = audioCtx.currentTime;
+    const time = now + startTime;
+    
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+    
+    osc.type = type;
+    osc.frequency.setValueAtTime(freq, time);
+    if (freqEnd) {
+        if (rampType === 'linear') osc.frequency.linearRampToValueAtTime(freqEnd, time + duration);
+        else osc.frequency.exponentialRampToValueAtTime(freqEnd, time + duration);
+    }
+    
+    gain.gain.setValueAtTime(gainValue, time);
+    gain.gain.exponentialRampToValueAtTime(0.001, time + duration);
+    
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(time);
+    osc.stop(time + duration);
+}
+
+const soundConfig = {
+    'click': { freq: 440, duration: 0.1, type: 'triangle', gainValue: 0.3 },
+    'hit': { freq: 200, freqEnd: 100, duration: 0.1, type: 'square', gainValue: 0.4 },
+    'crit_hit': { freq: 800, freqEnd: 300, duration: 0.2, type: 'sawtooth', gainValue: 0.5 },
+    'player_hit': { freq: 150, freqEnd: 80, duration: 0.2, type: 'square', gainValue: 0.4 },
+    'shield_up': { freq: 300, freqEnd: 1200, duration: 0.2, type: 'sine', gainValue: 0.4, rampType: 'linear' },
+    'heal': { freq: 400, freqEnd: 1600, duration: 0.5, type: 'sine', gainValue: 0.3, rampType: 'linear' },
+    'magic_perseverance': { freq: 400, freqEnd: 1600, duration: 0.5, type: 'sine', gainValue: 0.3, rampType: 'linear' },
+    'magic_maestry': { freq: 1200, freqEnd: 600, duration: 0.4, type: 'triangle', gainValue: 0.4 },
+    'magic_desolation': { freq: 500, freqEnd: 100, duration: 0.5, type: 'sawtooth', gainValue: 0.5 },
+    'crit_grave': { freq: 120, freqEnd: 80, duration: 0.3, type: 'square', gainValue: 0.4 },
+    'select_class': { freq: 400, freqEnd: 800, duration: 0.2, type: 'sine', gainValue: 0.3, rampType: 'linear' },
+    'boss_transform': { freq: 50, freqEnd: 200, duration: 1.5, type: 'sawtooth', gainValue: 0.6 },
+    'confirm_action': { freq: 600, freqEnd: 300, duration: 0.1, type: 'square', gainValue: 0.3 },
+    'code_success': { freq: 1046, duration: 0.15, type: 'triangle', gainValue: 0.3 },
+    'code_error': { freq: 150, freqEnd: 100, duration: 0.2, type: 'square', gainValue: 0.4 },
+    'victory': () => [ [523, 0], [659, 0.15], [783, 0.3], [1046, 0.45] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.1, type: 'triangle', gainValue: 0.3 }, t)),
+    'defeat': () => [ [440, 0], [330, 0.2], [220, 0.4], [110, 0.6] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.3, type: 'square', gainValue: 0.3 }, t)),
+    'game_start': () => [ [261, 0], [329, 0.1], [392, 0.2] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.15, type: 'sine', gainValue: 0.25 }, t)),
+    'purchase': () => [ [880, 0], [1046, 0.08] ].forEach(([f, t]) => playTone({ freq: f, duration: 0.1, type: 'triangle', gainValue: 0.2 }, t)),
+    'swing': () => { if(!audioCtx) return; const now = audioCtx.currentTime; const noise = audioCtx.createBufferSource(); const buffer = audioCtx.createBuffer(1, audioCtx.sampleRate * 0.2, audioCtx.sampleRate); const data = buffer.getChannelData(0); for (let i = 0; i < data.length; i++) { data[i] = Math.random() * 2 - 1; } noise.buffer = buffer; const bandpass = audioCtx.createBiquadFilter(); bandpass.type = 'bandpass'; bandpass.frequency.setValueAtTime(1000, now); bandpass.frequency.exponentialRampToValueAtTime(4000, now + 0.2); const gain = audioCtx.createGain(); gain.gain.setValueAtTime(0.2, now); gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2); noise.connect(bandpass).connect(gain).connect(audioCtx.destination); noise.start(now); },
+    'dodge': () => { if(!audioCtx) return; const now = audioCtx.currentTime; const noise = audioCtx.createBufferSource(); const dBuffer = audioCtx.createBuffer(1, audioCtx.sampleRate*0.15, audioCtx.sampleRate); const dData = dBuffer.getChannelData(0); for(let i=0;i<dData.length;i++){dData[i]=Math.random()*2-1;} noise.buffer=dBuffer; const dBandpass = audioCtx.createBiquadFilter(); dBandpass.type='bandpass'; dBandpass.frequency.setValueAtTime(3000,now); dBandpass.frequency.exponentialRampToValueAtTime(8000, now+0.15); const gain=audioCtx.createGain(); gain.gain.setValueAtTime(0.3,now); gain.gain.exponentialRampToValueAtTime(0.001,now+0.15); noise.connect(dBandpass).connect(gain).connect(audioCtx.destination); noise.start(now); },
+};
+
+function playSound(type) {
+    if (!audioCtx) return;
+    if (audioCtx.state === 'suspended') { audioCtx.resume(); }
+    const sound = soundConfig[type];
+    if (typeof sound === 'function') sound();
+    else if (sound) playTone(sound);
+}
+
+const enemyMap = {
+    'Slime': { name: 'Slime', tier: 'Fácil', elementId: 'slimeImg', baseHp: 75, baseDmg: 6, defense: 0, evasion: 0, gold: [8, 14] },
+    'Goblin': { name: 'Goblin', tier: 'Fácil', elementId: 'goblinImg', baseHp: 90, baseDmg: 7, defense: 0, evasion: 3, gold: [10, 18] },
+    'Morcego': { name: 'Morcego', tier: 'Fácil', elementId: 'morcegoImg', baseHp: 65, baseDmg: 9, defense: 0, evasion: 18, gold: [12, 20] },
+    'Esqueleto': { name: 'Esqueleto', tier: 'Fácil', elementId: 'esqueletoImg', baseHp: 80, baseDmg: 8, defense: 1, evasion: 5, gold: [9, 16] },
+    'Aranha': { name: 'Aranha', tier: 'Fácil', elementId: 'aracnaImg', baseHp: 70, baseDmg: 10, defense: 0, evasion: 10, gold: [11, 19] },
+    'Orc': { name: 'Orc', tier: 'Médio', elementId: 'orcImg', baseHp: 130, baseDmg: 11, defense: 2, evasion: 3, gold: [15, 25] },
+    'Golem': { name: 'Golem', tier: 'Médio', elementId: 'golemImg', baseHp: 170, baseDmg: 8, defense: 6, evasion: 0, gold: [20, 30] },
+    'Espectro': { name: 'Espectro', tier: 'Médio', elementId: 'espectroImg', baseHp: 95, baseDmg: 15, defense: 2, evasion: 15, gold: [22, 35] },
+    'Grifo': { name: 'Grifo', tier: 'Médio', elementId: 'grifoImg', baseHp: 110, baseDmg: 16, defense: 3, evasion: 12, gold: [25, 38] },
+    'Elemental': { name: 'Elemental', tier: 'Médio', elementId: 'elementalImg', baseHp: 190, baseDmg: 10, defense: 8, evasion: 0, gold: [28, 40] },
+    'Minotauro': { name: 'Minotauro', tier: 'Difícil', elementId: 'minotauroImg', baseHp: 210, baseDmg: 14, defense: 6, evasion: 0, gold: [30, 45] },
+    'Serpente': { name: 'Serpente', tier: 'Difícil', elementId: 'serpeImg', baseHp: 175, baseDmg: 18, defense: 4, evasion: 12, gold: [35, 55] },
+    'Lich': { name: 'Lich', tier: 'Difícil', elementId: 'lichImg', baseHp: 180, baseDmg: 22, defense: 5, evasion: 8, gold: [40, 60] },
+    'Dragao': { name: 'Dragão', tier: 'Difícil', elementId: 'dragaoImg', baseHp: 230, baseDmg: 20, defense: 7, evasion: 5, gold: [45, 65] },
+    'Arcanjo30': { name: 'Arcanjo', id: 'Arcanjo30', tier: 'Boss', elementId: 'arcanjoImg', baseHp: 1000, baseDmg: 25, defense: 8, evasion: 10, gold: [300, 300] },
+    'Arcanjo60': { name: 'Arcanjo', id: 'Arcanjo60', tier: 'Boss', elementId: 'arcanjoAladoImg', baseHp: 666, baseDmg: 35, defense: 10, evasion: 15, gold: [0, 0], nextPhase: 'Diabo' },
+    'Diabo': { name: 'O Diabo', id: 'Diabo', tier: 'Boss', elementId: 'diaboImg', baseHp: 2000, baseDmg: 50, defense: 15, evasion: 20, gold: [1000, 1000] },
+};
+const classDescriptions = { 
+    Maestria: "Sua magia Postura de Batalha garante que seus próximos 3 ataques sejam críticos.", 
+    Desolacao: "Sua magia Fúria Cega causa dano massivo, mas custa 20% da sua vida máxima.", 
+    Perseveranca: "Sua magia Bálsamo Protetor cura 25% da sua vida máxima e aplica regeneração." 
+};
+
+const skills = {
+    ataque: {
+        title: "Ataque",
+        skills: {
+            precision: { name: 'Precisão', desc: 'Aumenta a chance de crítico.', max: 5, cost: 1, apply: (p, l) => p.crit += 2 + l },
+            crit_damage: { name: 'Dano Crítico', desc: 'Aumenta o dano de acertos críticos.', max: 5, cost: 2, apply: () => {} },
+            double_strike: { name: 'Golpe Duplo', desc: 'Chance de atacar duas vezes.', max: 3, cost: 4, apply: () => {} },
+            execute: { name: 'Carrasco', desc: 'Dano extra em alvos com vida baixa.', max: 1, cost: 4, apply: () => {} },
+        }
+    },
+    defesa: {
+        title: "Defesa",
+        skills: {
+            vitality: { name: 'Vitalidade', desc: 'Aumenta seu HP máximo.', max: 10, cost: 1, apply: (p, l) => p.maxHp += 3 + (l * 2) },
+            fortification: { name: 'Fortificação', desc: 'Aumenta sua defesa permanentemente.', max: 5, cost: 2, apply: (p) => p.defense += 1 },
+            recovery: { name: 'Recuperação', desc: 'Regenera HP a cada turno.', max: 3, cost: 3, apply: () => {} },
+            last_stand: { name: 'Último Recurso', desc: 'Sobreviva a um golpe fatal com 1 HP.', max: 1, cost: 5, apply: () => {} },
+        }
+    },
+    utilidade: {
+        title: "Utilidade",
+        skills: {
+            gold_finder: { name: 'Caçador de Tesouros', desc: 'Encontra mais ouro.', max: 5, cost: 1, apply: () => {} },
+            scavenger: { name: 'Sucateiro', desc: 'Chance de achar poções após a vitória.', max: 3, cost: 2, apply: () => {} },
+            magic_affinity: { name: 'Afinidade Mágica', desc: 'Reduz a recarga da sua magia.', max: 2, cost: 5, apply: () => {} },
+        }
+    }
+};
+
+const storyEvents = {
+    1: { title: 'O Início', text: 'Você adentra a masmorra. Um ar pesado e antigo preenche seus pulmões. A lenda do tesouro no final o impulsiona, mas sussurros nas paredes falam de um "Guardião" amaldiçoado.', choices: [{ text: 'Continuar', cb: () => 'Você ignora os avisos. A glória o aguarda.' }] },
+    2: { title: 'Primeiros Sinais', text: 'Em uma parede, um entalhe rústico mostra uma figura alada com uma lágrima caindo do olho. Abaixo, a palavra "traído".', choices: [{ text: 'Examinar', cb: () => 'O entalhe é antigo. Quem o fez sentia grande tristeza.' }] },
+    5: { title: 'Diário de um Viajante', text: 'Você encontra um diário. "Andar 5: O guardião... O Arcanjo... Ele não me atacou. Apenas me olhou com uma tristeza infinita. A corrupção o está consumindo."', choices: [{ text: 'Ler mais', cb: () => { state.player.storyFlags.knowsAngelIsSad = true; return 'Você guarda o diário. A história parece mais complexa do que uma simples caça ao tesouro.'; } }] },
+    10: { title: 'O Cultista', text: 'Um homem em vestes escuras murmura: "O Selo enfraquece... O Mestre logo estará livre... O Arcanjo falhará..."', choices: [{ text: 'Confrontá-lo', cb: () => 'Ele ri maniacamente e se joga em um abismo. Suas palavras ecoam em sua mente.' }, { text: 'Observar', cb: () => { state.player.storyFlags.knowsAboutSeal = true; return { text: 'Você ouve sobre um "Selo" e um "Mestre". O Arcanjo parece ser mais um carcereiro do que um monstro.', next: () => showEvent(storyEvents[11])}; } }] },
+    11: { title: 'O Selo', text: 'As palavras do cultista o fazem pensar. Se o Arcanjo é um carcereiro, o que ele aprisiona? E por que o selo está enfraquecendo?', choices: [{ text: 'Procurar respostas', cb: () => 'Você decide que precisa entender a verdade antes de prosseguir cegamente.'}] },
+    15: { title: 'A Visão', text: 'Você toca um cristal pulsante e sua mente é inundada. Você vê o Arcanjo, luminoso, forjando um selo para aprisionar uma sombra vasta e disforme. A sombra sussurra: "Eu vou te quebrar por dentro..."', choices: [{ text: 'Recuar', cb: () => 'A visão o deixa abalado, mas agora você entende o fardo do Arcanjo.' }] },
+    20: { title: 'Sussurros da Sombra', text: 'Uma voz gélida ecoa em sua mente: "Aventureiro tolo... Cada passo seu me fortalece. Ao lutar contra as criaturas aqui, você alimenta minha prisão com desespero."', choices: [{ text: 'Ignorar a voz', cb: () => 'Você se concentra, afastando a presença maligna de sua mente.' }] },
+    25: { title: 'O Altar Despedaçado', text: 'Você encontra um altar dedicado ao Arcanjo, mas ele está em ruínas, coberto por uma gosma escura que pulsa.', choices: [{ text: 'Limpar o altar', cb: () => { state.player.hp = Math.min(state.player.maxHp, state.player.hp + 50); return 'Ao tocar o altar, uma luz fraca o purifica, curando suas feridas. (+50 HP)'; } }] },
+    29: { title: 'O Portão do Guardião', text: 'Um portão imenso bloqueia seu caminho. A imagem de um ser sem asas está gravada nele. A porta se abre lentamente.', choices: [{ text: 'Entrar', cb: () => 'O ar se torna pesado. Você sente um poder imenso e conflituoso à frente.' }] },
+    31: { title: 'O Selo Rachado', text: 'Após a batalha, você vê o grande selo que o Arcanjo guardava. A luta o danificou, e uma rachadura vaza energia escura.', choices: [{ text: 'Tocar a rachadura', cb: () => { if(!state.player.isInvincible) state.player.hp -= 20; return 'A energia o queima. O mal que vaza é potente. (-20 HP)'; } }, { text: 'Seguir em frente', cb: () => 'Você decide não mexer com forças que não compreende.' }] },
+    40: { title: 'O Lamento do Arcanjo', text: 'Um eco fantasmagórico ressoa: "...falhei... o selo... não vai aguentar... fuja..."', choices: [{ text: 'Ouvir', cb: () => 'É o aviso final do espírito do Arcanjo, antes de ser totalmente consumido.' }] },
+    45: { title: 'Fragmento de Luz', text: 'Você encontra um pequeno fragmento que emana a mesma luz do Arcanjo. Ele parece chamá-lo.', choices: [{ text: 'Pegar o fragmento', cb: () => { state.player.dmg += 5; state.player.storyFlags.hasLightFragment = true; return 'Você sente uma força pura fluindo em você. (+5 Dano Permanente)'; } }] },
+    50: { title: 'O Coração da Masmorra', text: 'A escuridão é quase total. A energia maligna é sufocante. Você sente que está no ninho da besta.', choices: [{ text: 'Preparar-se', cb: () => 'Você afia sua lâmina. O fim está próximo.' }] },
+    55: { title: 'A Última Mensagem', text: 'Gravado no chão, a última mensagem do Arcanjo: "Não me lamente. Destrua o que eu me tornei, e destrua Aquele que eu falhei em conter."', choices: [{ text: 'Assentir', cb: () => { state.player.storyFlags.finalResolve = true; return 'Com determinação, você avança para o confronto final.'; } }] },
+    59: { title: 'O Trono Vazio', text: 'Você chega a uma vasta câmara com um trono no centro. A figura alada do Arcanjo desce dos céus, seus olhos queimando com fogo profano.', choices: [{ text: 'Enfrentar seu destino', cb: () => 'A batalha final começa.' }] },
+};
+
+const uniqueNPCEvents = [
+    { id: 'goblin_merchant', title: "Mercador Goblin", text: "Um goblin com um casaco esfarrapado oferece um item. 'Troca, troca?'", choices: [ { text: "Comprar Poção (25 Ouro)", cb: () => { if(state.gold >= 25){ state.gold -= 25; state.player.potions++; return "Você comprou a poção. Parece legítima. (+1 Poção)"; } else { return "Você não tem ouro suficiente."; } } }, { text: "Recusar", cb: () => "O goblin dá de ombros e desaparece nas sombras." } ] },
+    { id: 'friendly_ghost', title: "Fantasma Amigável", text: "Um espectro translúcido flutua à sua frente. 'Cuidado... o mal se aprofunda...'", choices: [ { text: "Ouvir sua história", cb: () => "Ele fala de um grande herói traído, agora um carcereiro de sua própria prisão. A história o entristece." }, { text: "Atacar", cb: () => "Sua arma passa através dele. O fantasma suspira e desaparece." } ] },
+    { id: 'ghost_blacksmith', title: "O Ferreiro Fantasma", text: "Uma bigorna etérea brilha. Uma voz ecoa: 'Deixe-me afiar sua lâmina... por um preço.'", choices: [ { text: "Pagar com HP (-10% Max HP)", cb: () => { const cost = Math.round(state.player.maxHp * 0.1); if(!state.player.isInvincible) state.player.hp -= cost; state.player.dmgUpgrade++; return `A lâmina brilha com poder. (-${cost} HP, +1 Melhoria de Dano)`; } }, { text: "Recusar a oferta", cb: () => "A visão desaparece." } ] },
+    { id: 'wise_hermit', title: "O Sábio Eremita", text: "Um velho oferece um conselho: 'A verdadeira força não está no golpe, mas na resistência.'", choices: [ { text: "Ouvir", cb: () => { state.player.maxHp += 10; state.player.hp += 10; return "Suas palavras o inspiram. (+10 HP Máximo)"; } }, { text: "Ignorar", cb: () => "Você não tem tempo para enigmas." } ] },
+];
+
+const repeatableEvents = [
+    { title: "Inscrição Rúnica", text: "Você encontra uma runa brilhante na parede.", choices: [ { text: 'Tocar na runa', cb: () => { if(Math.random() > 0.5){ state.player.hp = Math.min(state.player.maxHp, state.player.hp + 25); return 'Uma energia quente flui para você! (+25 HP)'; } else { if(!state.player.isInvincible) state.player.hp -= 15; return 'A runa explode em energia selvagem! (-15 HP)'; } } }, { text: 'Deixar para lá', cb: () => 'Você decide não mexer com magia desconhecida.' } ] },
+    { title: "Baú Suspeito", text: "Um baú de madeira está no centro da sala.", choices: [ { text: "Abrir", cb: () => { if(Math.random() > 0.4){ state.gold += 100; return "É o seu dia de sorte! (+100 Ouro)"; } else { return "É uma armadilha! O baú morde sua mão e desaparece."; } } }, { text: "Ignorar", cb: () => "Você desconfia de uma armadilha e deixa o baú intocado." } ] },
+    { title: "Fonte Curativa", text: "Uma pequena fonte de água cristalina murmura em um canto.", choices: [ { text: "Beber a água", cb: () => { state.player.hp = state.player.maxHp; return "A água restaura completamente sua vida!"; } }, { text: "Lavar o rosto", cb: () => { state.player.hp = Math.min(state.player.maxHp, state.player.hp + 15); return "A água é refrescante. (+15 HP)"; } } ] },
+    { title: "Altar Esquecido", text: "Um altar de pedra antigo está coberto de poeira.", choices: [ { text: "Rezar no altar", cb: () => { state.player.buff = { type: 'defense', turns: 5 }; return "Você sente uma bênção protetora sobre você. (+Defesa por 5 turnos)"; } }, { text: "Deixar uma oferenda (10 Ouro)", cb: () => { if(state.gold >= 10){ state.gold -= 10; state.player.crit += 2; return "O altar brilha brevemente. Você se sente mais sortudo. (+2% Crítico Permanente)"; } else { return "Você não tem nada para oferecer."; } } } ] },
+    { title: "Cogumelos Brilhantes", text: "Uma clareira é iluminada por cogumelos bioluminescentes.", choices: [ { text: "Comer um cogumelo", cb: () => { if(Math.random() > 0.5){ state.player.hp = Math.min(state.player.maxHp, state.player.hp + 30); return "Delicioso e revigorante! (+30 HP)"; } else { if(!state.player.isInvincible) state.player.hp -= 20; return "Um gosto terrível e tontura! (-20 HP)"; } } }, { text: "Apenas observar", cb: () => "A visão é bela e calmante." } ] },
+    { title: "Silêncio Opressor", text: "Esta sala é completamente silenciosa. Um sentimento de pavor cresce em você.", choices: [ { text: "Avançar rapidamente", cb: () => "Você atravessa a sala, o coração batendo forte, mas nada acontece." }, { text: "Avançar com cautela", cb: () => { state.gold += 20; return "Sua cautela é recompensada. Você encontra 20 de ouro caídos no chão." } } ] },
+    { title: "O Labirinto Ilusório", text: "As paredes parecem se mover. Você está perdido.", choices: [ { text: "Seguir pela direita", cb: () => { state.player.potions++; return "Você encontra a saída rapidamente e uma poção esquecida. (+1 Poção)"; } }, { text: "Seguir pela esquerda", cb: () => { if(!state.player.isInvincible) state.player.hp -= 10; return "Você anda em círculos e se cansa. (-10 HP)"; } } ] },
+    { title: "Poça de Mercúrio", text: "Uma poça de metal líquido prateado ondula no chão.", choices: [ { text: "Tocar", cb: () => { state.player.defense++; return "O metal reveste sua armadura, tornando-a mais resistente. (+1 Defesa Permanente)"; } }, { text: "Contornar", cb: () => "Você sabiamente evita o líquido misterioso." } ] },
+    { title: "Armadilha de Dardos", text: "Você pisa em uma placa de pressão e ouve um 'click'.", choices: [ { text: "Esquivar!", cb: () => { if(Math.random() > 0.3){ return "Você se joga no chão a tempo. Por pouco!"; } else { if(!state.player.isInvincible) state.player.hp -= 25; return "Tarde demais! Um dardo atinge você. (-25 HP)"; } } }, { text: "Bloquear com escudo!", cb: () => { if(state.player.shield > 0){ state.player.shield--; return "Você levanta o escudo e bloqueia os dardos. (-1 Carga de Escudo)"; } else { if(!state.player.isInvincible) state.player.hp -= 25; return "Você não tem escudo! (-25 HP)"; } } } ] },
+    { title: "Cadáver de um Aventureiro", text: "Você encontra o corpo de alguém que não teve a mesma sorte.", choices: [ { text: "Pegar seus pertences", cb: () => { const goldFound = Math.floor(Math.random() * 40) + 10; state.gold += goldFound; return `Você encontra uma bolsa com ${goldFound} de ouro.`; } }, { text: "Prestar respeito", cb: () => "Você faz uma breve pausa. Que ele descanse em paz." } ] },
+    { title: "O Espelho da Alma", text: "Um espelho ornamentado reflete uma versão sombria de você.", choices: [ { text: "Quebrar o espelho", cb: () => { if(!state.player.isInvincible) state.player.hp -= 10; state.player.crit += 2; return "Fragmentos cortam você, mas a imagem sombria se foi. (-10 HP, +2% Crítico)"; } }, { text: "Encarar seu reflexo", cb: () => { state.player.defense++; return "Você aceita suas falhas e se torna mais resiliente. (+1 Defesa)"; } } ] },
+];
+
+
+/* ----- Game State Management ----- */
+function saveGame() { localStorage.setItem('battleGameSave', JSON.stringify(state)); }
+function loadGame() {
+    try {
+        const savedState = JSON.parse(localStorage.getItem('battleGameSave'));
+        if (savedState && typeof savedState === 'object') {
+            state = savedState;
+            return true;
+        }
+    } catch (e) {
+        console.error("Falha ao carregar o jogo salvo.", e);
+        clearSave();
+    }
+    return false;
+}
+function clearSave() { localStorage.removeItem('battleGameSave'); }
+
+function continueGame() {
+    if (state.player.hp <= 0 && !state.player.isInvincible) {
+        clearSave();
+        uiElements.endingText.textContent = `Sua jornada termina no andar ${state.level}. A escuridão consumiu o mundo...`;
+        showScreen('gameOverScreen', false);
+        return;
+    }
+    if (state.currentScreen === 'battleScreen') {
+        document.querySelectorAll('.enemy-svg').forEach(img => img.classList.remove('active'));
+        if(state.enemy.elementId) document.getElementById(state.enemy.elementId).classList.add('active');
+    }
+    uiElements.magicFill.style.backgroundColor = classColors[state.player.class];
+    refreshAllUIs();
+    showScreen(state.currentScreen, false);
+
+    if (state.currentScreen === 'eventScreen') {
+        const eventData = storyEvents[state.level] || uniqueNPCEvents.find(e => e.id === state.lastUniqueEvent) || repeatableEvents[0];
+        showEvent(eventData);
+    }
+}
+
+function checkForSave() {
+    if (localStorage.getItem('battleGameVictory')) {
+        enterKingdomMode(false);
+    }
+    const startHint = uiElements.startHint;
+    if (localStorage.getItem('battleGameSave')) {
+        startHint.textContent = 'TOQUE PARA CONTINUAR';
+    } else {
+        startHint.textContent = 'TOQUE PARA JOGAR';
+    }
+}
+function refreshAllUIs() { refreshUI(); updateShopUI(); updateSkillUI(); }
+
+/* ----- Core Functions ----- */
+function setBodyBackground(screenName) {
+    let background;
+    const isVictory = localStorage.getItem('battleGameVictory');
+
+    if (isVictory) {
+        background = 'linear-gradient(180deg, #000000 0%, var(--blue-dark) 100%)';
+    } else {
+        const backgrounds = {
+            menuScreen: 'linear-gradient(180deg, #000000 0%, var(--red-dark) 100%)',
+            classScreen: 'linear-gradient(180deg, #2b0707 0%, #061233 100%)',
+            battleScreen: 'linear-gradient(180deg, rgba(43, 7, 7, 0.9) 0%, rgba(0,0,0,1) 50%, rgba(6, 18, 51, 0.9) 100%)',
+            gameOverScreen: 'linear-gradient(180deg, #000 0%, var(--red-dark) 100%)',
+            shopScreen: 'linear-gradient(180deg, #061233 0%, #1a0633 100%)',
+            eventScreen: 'linear-gradient(180deg, #1d1a3b 0%, #000 100%)'
+        };
+        background = backgrounds[screenName] || 'linear-gradient(180deg, #000000 0%, var(--red-dark) 100%)';
+    }
+    document.body.style.background = background;
+}
+
+function showScreen(screenId, doSave = true) {
+    if(screenId !== 'menuScreen') playSound('click');
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const screen = document.getElementById(screenId);
+    if(screen) screen.classList.add('active');
+    setBodyBackground(screenId);
+
+    // --- Music Control based on Screen ---
+    switch(screenId) {
+        case 'menuScreen':
+            musicController.play('theme');
+            break;
+        case 'classScreen':
+        case 'shopScreen':
+        case 'eventScreen':
+            musicController.play('menu');
+            break;
+        case 'battleScreen':
+            // This is handled by spawnEnemy to choose the right track
+            break;
+        case 'gameOverScreen':
+            musicController.stop();
+            break;
+    }
+
+
+    if (doSave) {
+        state.currentScreen = screenId;
+        saveGame();
+    }
+}
+function previewClass(className, color, btnElement) {
+    selectedClass = { name: className, color: color };
+    const classTitle = uiElements.classPreviewTitle;
+    classTitle.textContent = className;
+    classTitle.style.color = color;
+    classTitle.classList.add('visible');
+
+    document.querySelectorAll('.class-btn').forEach(btn => btn.classList.remove('selected'));
+    btnElement.classList.add('selected');
+    document.querySelector('.class-selector').classList.add('preview-mode');
+    
+    let desc = classDescriptions[className];
+    const specialMoves = ["Postura de Batalha", "Fúria Cega", "Bálsamo Protetor"];
+    specialMoves.forEach(move => {
+        if (desc.includes(move)) {
+            desc = desc.replace(move, `<span style="color:${color}; font-weight:bold;">${move}</span>`);
+        }
+    });
+    
+    uiElements.classInfo.innerHTML = desc;
+    const confirmBtn = uiElements.confirmClassBtn;
+    confirmBtn.style.display = 'block';
+    confirmBtn.style.backgroundColor = color;
+}
+function confirmClass() {
+    if (selectedClass.name) {
+        playSound('confirm_action');
+        uiElements.confirmClassBtn.style.background = '';
+        chooseClass(selectedClass.name, selectedClass.color);
+    }
+}
+function resetClassSelection() { 
+    document.querySelectorAll('.class-btn').forEach(btn => btn.classList.remove('selected')); 
+    document.querySelector('.class-selector').classList.remove('preview-mode'); 
+    uiElements.classInfo.textContent = 'Selecione uma classe para ver seus detalhes.'; 
+    uiElements.confirmClassBtn.style.display = 'none'; 
+    uiElements.classPreviewTitle.classList.remove('visible');
+    selectedClass = { name: null, color: null }; 
+}
+function showTab(tabId) {
+    uiElements.shopTab.style.display = tabId === 'shopTab' ? 'flex' : 'none';
+    uiElements.skillTab.style.display = tabId === 'skillTab' ? 'flex' : 'none';
+    
+    uiElements.shopTabBtn.classList.toggle('active', tabId === 'shopTab');
+    uiElements.skillTabBtn.classList.toggle('active', tabId === 'skillTab');
+}
+
+function chooseClass(cls, color){
+    const isInvincible = state.player.isInvincible;
+    const hasHitKill = state.player.hasHitKill;
+    state = deepCopy(initialState);
+    state.player.isInvincible = isInvincible;
+    state.player.hasHitKill = hasHitKill;
+
+    state.player.class = cls;
+    if(cls === 'Maestria'){ state.player.crit = 25; state.player.dmg = 13; state.magic.cdMax = 5; state.player.critMultiplier = 1.75; }
+    else if(cls === 'Desolacao'){ state.player.crit = 5; state.player.dmg = 17; state.magic.cdMax = 4; }
+    else if(cls === 'Perseveranca'){ state.player.maxHp = 140; state.player.hp = 140; state.player.shieldMax = 3; state.player.shield = 3; state.player.potions = 3; state.magic.cdMax = 6; }
+    uiElements.magicFill.style.backgroundColor = color;
+    
+    state.level = 1;
+
+    showScreen('eventScreen');
+    showEvent(storyEvents[1]);
+}
+
+function spawnEnemy(enemyId){
+    let enemyTemplate;
+    if (enemyId) {
+        enemyTemplate = deepCopy(enemyMap[enemyId]);
+    } else {
+        hasUsedLastStand = false;
+        let availableTiers = [];
+        if (state.level <= 10) availableTiers.push('Fácil');
+        if (state.level >= 8 && state.level <= 40) availableTiers.push('Médio');
+        if (state.level >= 22) availableTiers.push('Difícil');
+        
+        const chosenTier = availableTiers[Math.floor(Math.random() * availableTiers.length)];
+        let availableEnemies = Object.values(enemyMap).filter(e => e.tier === chosenTier);
+        
+        if (availableEnemies.length > 1 && state.lastEnemyName) {
+            const filteredEnemies = availableEnemies.filter(e => e.name !== state.lastEnemyName);
+            if (filteredEnemies.length > 0) {
+                availableEnemies = filteredEnemies;
+            }
+        }
+        enemyTemplate = deepCopy(availableEnemies[Math.floor(Math.random() * availableEnemies.length)]);
+    }
+    
+    document.querySelectorAll('.enemy-svg').forEach(img => img.classList.remove('active'));
+    document.getElementById(enemyTemplate.elementId).classList.add('active');
+    
+    state.enemy = { ...enemyTemplate };
+    if (enemyTemplate.tier !== 'Boss') {
+        const floor = state.level;
+        let hpMultiplier, dmgMultiplier;
+        if (floor <= 30) { hpMultiplier = 1 + (floor - 1) * 0.08; dmgMultiplier = 1 + (floor - 1) * 0.07; }
+        else { const post30floor = floor - 30; const baseMultiplier30 = 1 + 29 * 0.08; hpMultiplier = baseMultiplier30 + post30floor * 0.11; dmgMultiplier = (1 + 29 * 0.07) + post30floor * 0.1; }
+        state.enemy.hp = Math.round(enemyTemplate.baseHp * hpMultiplier);
+        state.enemy.maxHp = Math.round(enemyTemplate.baseHp * hpMultiplier);
+        state.enemy.dmg = Math.round(enemyTemplate.baseDmg * dmgMultiplier);
+    } else {
+        state.enemy.hp = enemyTemplate.baseHp;
+        state.enemy.maxHp = enemyTemplate.baseHp;
+        state.enemy.dmg = enemyTemplate.baseDmg;
+    }
+    
+    // --- BATTLE MUSIC SELECTION ---
+    if (state.enemy.tier === 'Boss') {
+        if (state.level === 30) musicController.play('boss1');
+        else if (state.level === 60 && state.enemy.nextPhase) musicController.play('boss2');
+        else musicController.play('boss3');
+    } else {
+        switch(state.enemy.tier) {
+            case 'Fácil': musicController.play('battleEasy'); break;
+            case 'Médio': musicController.play('battleMedium'); break;
+            case 'Difícil': musicController.play('battleHard'); break;
+        }
+    }
+
+
+    const enemyHpBar = uiElements.enemyInner;
+    enemyHpBar.classList.remove('devil-hp');
+    if (state.enemy.id === 'Diabo') {
+        enemyHpBar.classList.add('devil-hp');
+    }
+    
+    state.magic.cd = 0; isShielding = false; isPlayerTurn = true;
+    let logMessage = `${state.enemy.name} apareceu!`;
+    if (state.enemy.name === 'Arcanjo') {
+        logMessage = `<span style="color: var(--gold);">${state.enemy.name} apareceu!</span>`;
+    }
+    writeLog(logMessage);
+    state.lastEnemyName = state.enemy.name;
+    refreshUI();
+}
+
+function pct(val, max) { return Math.max(0, Math.min(100, (val / max) * 100)); }
+
+function updateText(element, newText) {
+    if(!element) return;
+    if (uiCache[element.id] !== newText) {
+        element.textContent = newText;
+        uiCache[element.id] = newText;
+    }
+}
+function updateWidth(element, newWidth) {
+    if(!element) return;
+    const newWidthStr = newWidth + '%';
+    if (uiCache[element.id] !== newWidthStr) {
+        element.style.width = newWidthStr;
+        uiCache[element.id] = newWidthStr;
+    }
+}
+
+function refreshUI(){
+    const { player, enemy, level, gold, magic } = state;
+
+    if (player.isInvincible) player.hp = player.maxHp;
+
+    const tierClass = `tier-${enemy.tier.replace(' ', '-')}`;
+    const nameColor = enemy.id === 'Diabo' ? 'var(--red)' : (enemy.name === 'Arcanjo' ? 'var(--gold)' : '#fff');
+    const enemyNameHTML = `<span style="color: ${nameColor};">${enemy.name.toUpperCase()}</span> <span class="${tierClass}">(${enemy.tier})</span>`;
+    if (uiElements.enemyNameLabel && uiCache.enemyNameHTML !== enemyNameHTML) {
+        uiElements.enemyNameLabel.innerHTML = enemyNameHTML;
+        uiCache.enemyNameHTML = enemyNameHTML;
+    }
+    
+    const enemyHpPct = pct(enemy.hp, enemy.maxHp);
+    updateWidth(uiElements.enemyInner, enemyHpPct);
+    updateText(uiElements.enemyInner, `HP: ${Math.max(0, enemy.hp)}/${enemy.maxHp}`);
+    
+    const playerHpPct = pct(player.hp, player.maxHp);
+    updateWidth(uiElements.playerInner, playerHpPct);
+    updateText(uiElements.playerInner, `HP: ${Math.max(0, player.hp)}/${player.maxHp}`);
+
+    const shieldPct = player.shieldMax > 0 ? pct(player.shield, player.shieldMax) : 0;
+    updateWidth(uiElements.shieldFill, shieldPct);
+    updateText(uiElements.shieldMeta, `${player.shield}/${player.shieldMax}`);
+    updateText(uiElements.potionMeta, player.potions);
+    updateText(uiElements.levelDisplay, `ANDAR: ${level}`);
+    updateText(uiElements.goldBattle, `OURO: ${gold}$`);
+    updateText(uiElements.skillPointBattle, `SKILLS: ${player.skillPoints}`);
+
+    const magicPct = 100 - pct(magic.cd, magic.cdMax - (player.skills.magic_affinity?.level || 0));
+    updateWidth(uiElements.magicFill, magicPct);
+    
+    let statusHTML = '';
+    if (player.hasHitKill) statusHTML += `<span class="status-icon" style="color: var(--red); font-weight: bold;">[HIT KILL]</span>`;
+    if (player.isInvincible) statusHTML += `<span class="status-icon" style="color: var(--gold); font-weight: bold;">[INVENCÍVEL]</span>`;
+    if (player.buff.type) statusHTML += `<span class="status-icon">${player.buff.type.toUpperCase()}: ${player.buff.turns}</span>`;
+    if (uiElements.playerStatusIcons && uiCache.statusHTML !== statusHTML) {
+        uiElements.playerStatusIcons.innerHTML = statusHTML;
+        uiCache.statusHTML = statusHTML;
+    }
+    
+    const gameOver = (player.hp <= 0 && !player.isInvincible) || enemy.hp <= 0;
+    if(uiElements.atkBtn) uiElements.atkBtn.disabled = gameOver || !isPlayerTurn;
+    if(uiElements.shieldBtn) uiElements.shieldBtn.disabled = gameOver || !isPlayerTurn || player.shield <= 0;
+    if(uiElements.potionBtn) uiElements.potionBtn.disabled = gameOver || !isPlayerTurn || player.potions <= 0 || player.hp >= player.maxHp;
+    if(uiElements.magicBtn) uiElements.magicBtn.disabled = gameOver || !isPlayerTurn || magic.cd > 0;
+}
+
+const shopItemsConfig = {
+    'potion': {
+        getCost: (s) => shopPrices.potion + Math.floor(s.level / 6) * 4,
+        canBuy: (s) => true,
+        onPurchase: (s) => s.player.potions++,
+        updateSubtext: (s) => `Recupera ${35 + (s.player.potionUpgrade * 10)} HP`
+    },
+    'shield': {
+        getCost: (s) => shopPrices.shield + Math.floor(s.level / 7) * 5,
+        canBuy: (s) => s.player.shield < s.player.shieldMax,
+        onPurchase: (s) => s.player.shield++,
+    },
+    'upgrade': {
+        getCost: (s) => shopPrices.upgrade + Math.pow(s.player.dmgUpgrade, 2) * 6 + Math.floor(s.level / 5) * 10,
+        canBuy: (s) => true,
+        onPurchase: (s) => s.player.dmgUpgrade++,
+        updateSubtext: (s) => `+${3 + Math.floor(s.player.dmgUpgrade / 2)} de Dano`
+    },
+    'armor': {
+        getCost: (s) => shopPrices.armor + s.player.armorUpgrade * 22 + Math.floor(s.level / 7) * 8,
+        canBuy: (s) => true,
+        onPurchase: (s) => { s.player.armorUpgrade++; s.player.defense++; },
+    },
+    'maxShield': {
+        getCost: (s) => shopPrices.maxShield + (s.player.shieldMax - 2) * 60,
+        canBuy: (s) => true,
+        onPurchase: (s) => { s.player.shieldMax++; s.player.shield = s.player.shieldMax; },
+    },
+    'potionUpgrade': {
+        getCost: (s) => shopPrices.potionUpgrade + s.player.potionUpgrade * 40,
+        canBuy: (s) => true,
+        onPurchase: (s) => s.player.potionUpgrade++,
+    }
+};
+
+function updateShopUI() {
+    updateText(uiElements.shopGoldDisplay, `OURO: ${state.gold}$`);
+    updateText(uiElements.skillPointDisplay, `PONTOS: ${state.player.skillPoints}`);
+
+    for (const itemId in shopItemsConfig) {
+        const config = shopItemsConfig[itemId];
+        const button = uiElements.shopButtons[itemId];
+        if (!button) continue;
+
+        const cost = config.getCost(state);
+        button.querySelector('.price').textContent = `${cost}$`;
+        button.disabled = state.gold < cost || !config.canBuy(state);
+
+        const subtextElem = button.querySelector('.btn-subtext');
+        if (config.updateSubtext && subtextElem) {
+            subtextElem.textContent = config.updateSubtext(state);
+        }
+    }
+}
+
+function buyItem(itemId, btnElement) {
+    const config = shopItemsConfig[itemId];
+    if (!config) return;
+
+    const cost = config.getCost(state);
+    if (state.gold >= cost && config.canBuy(state)) {
+        state.gold -= cost;
+        config.onPurchase(state);
+        playSound('purchase');
+        btnElement.classList.add('purchased');
+        setTimeout(() => btnElement.classList.remove('purchased'), 500);
+        updateShopUI();
+    }
+}
+
+function updateSkillUI() {
+    const container = document.querySelector('.skill-items');
+    if(!container) return;
+    container.innerHTML = '';
+    
+    for (const treeKey in skills) {
+        const tree = skills[treeKey];
+        const treeDiv = document.createElement('div');
+        treeDiv.className = 'skill-tree';
+        treeDiv.innerHTML = `<h3>${tree.title}</h3>`;
+        
+        for (const key in tree.skills) {
+            const skill = tree.skills[key];
+            const currentLevel = state.player.skills[key]?.level || 0;
+            const canBuy = state.player.skillPoints >= skill.cost && currentLevel < skill.max;
+            const btn = document.createElement('button');
+            btn.className = 'btn skill-btn';
+            btn.disabled = !canBuy;
+            btn.onclick = () => buySkill(treeKey, key, btn);
+            btn.innerHTML = `<div class="btn-text">${skill.name} <span class="btn-subtext">${skill.desc} (${currentLevel}/${skill.max})</span></div><span class="price">Custo: ${skill.cost}P</span>`;
+            treeDiv.appendChild(btn);
+        }
+        container.appendChild(treeDiv);
+    }
+}
+function writeLog(msg){ 
+    if(uiElements.logText) uiElements.logText.innerHTML = msg; 
+}
+function toggleActionButtons(enable) { isPlayerTurn = enable; refreshUI(); }
+function showInfoPopup(text, color = 'var(--gold)') {
+    const container = document.getElementById('damagePopupContainer');
+    if(!container) return;
+    const popup = document.createElement('div');
+    popup.className = 'info-popup';
+    popup.style.setProperty('--popup-color', color);
+    popup.textContent = text;
+    container.appendChild(popup);
+    setTimeout(() => popup.remove(), 1000);
+}
+function checkPlayerDeath() {
+    if (state.player.hp <= 0 && !state.player.isInvincible) {
+        setTimeout(() => {
+            writeLog('Você foi derrotado!');
+            playSound('defeat');
+            updateText(uiElements.gameOverTitle, 'Você Morreu!');
+            uiElements.gameOverTitle.style.color = 'var(--red)';
+            updateText(uiElements.gameOverHint, 'TOQUE PARA RECOMEÇAR');
+            updateText(uiElements.endingText, `Sua jornada termina no andar ${state.level}. A escuridão consumiu o mundo...`);
+            document.getElementById('gameOverScreen').onclick = () => restartGame();
+            clearSave();
+            showScreen('gameOverScreen', false);
+        }, 1200);
+        return true;
+    }
+    return false;
+}
+
+function triggerHitAnimation(isCrit) {
+    const enemyImg = document.getElementById(state.enemy.elementId);
+    if(!enemyImg) return;
+    enemyImg.classList.remove('hit', 'crit-hit');
+    void enemyImg.offsetWidth;
+    enemyImg.classList.add(isCrit ? 'crit-hit' : 'hit');
+}
+
+function performAttack() {
+    if(state.player.hasHitKill) {
+        state.enemy.hp = 0;
+        writeLog("GOLPE FINAL.");
+        return;
+    }
+    if (Math.random() * 100 < state.enemy.evasion) {
+        playSound('dodge');
+        writeLog(`Você atacou, mas o inimigo <span style="color:var(--red); font-weight:bold;">ESQUIVOU!</span>`);
+        showInfoPopup('Esquivou!', 'var(--red)');
+        return;
+    }
+    const dmgBuff = state.player.buff.type === 'damage' ? 5 + state.player.dmgUpgrade : 0;
+    const damageFromUpgrades = (state.player.dmgUpgrade * 3) + Math.floor(Math.pow(state.player.dmgUpgrade, 2) / 4);
+    const baseDmg = state.player.dmg + damageFromUpgrades + dmgBuff;
+    let totalDmg = Math.max(1, (baseDmg + Math.floor(Math.random()*4)) - state.enemy.defense);
+    const precisionBonus = (state.player.skills.precision?.level || 0) * (2 + (state.player.skills.precision?.level || 0));
+    let isCrit = state.player.buff.type === 'crit' || Math.random()*100 < (state.player.crit + precisionBonus);
+    if (state.player.skills.execute?.level && (state.enemy.hp / state.enemy.maxHp) < 0.3) { totalDmg = Math.round(totalDmg * 1.2); }
+    
+    triggerHitAnimation(isCrit);
+
+    if(isCrit){
+        const critDmgBonus = (state.player.skills.crit_damage?.level || 0) * 0.12;
+        totalDmg = Math.round(totalDmg * (state.player.critMultiplier + critDmgBonus));
+        playSound('crit_grave');
+        showInfoPopup('CRÍTICO!');
+        playSound('crit_hit');
+    } else {
+        playSound('hit');
+    }
+    writeLog(`Você causou ${totalDmg} de dano.`);
+    state.enemy.hp = Math.max(0, state.enemy.hp - totalDmg);
+}
+
+function executePlayerAction(actionCallback, condition = true) {
+    if (!isPlayerTurn || !condition) return;
+    toggleActionButtons(false);
+    actionCallback();
+}
+
+function playerAttack() {
+    executePlayerAction(() => {
+        playSound('swing');
+        setTimeout(() => {
+            performAttack();
+            afterPlayerAction(true, true);
+        }, 200);
+    });
+}
+function playerShield() {
+    executePlayerAction(() => {
+        playSound('shield_up');
+        isShielding = true;
+        const shieldDamage = Math.max(1, Math.floor(state.player.defense * 1.5) + 5);
+        state.enemy.hp = Math.max(0, state.enemy.hp - shieldDamage);
+        state.magic.cd = Math.max(0, state.magic.cd - 1);
+        triggerHitAnimation(false);
+        writeLog(`Você se defende, causa ${shieldDamage} de dano e restaura 1 ponto de Magia!`);
+        afterPlayerAction();
+    }, state.player.shield > 0);
+}
+function playerMagic() {
+    executePlayerAction(() => {
+        let msg = '';
+        const { player, enemy } = state;
+        if(player.class === 'Maestria'){ playSound('magic_maestry'); player.buff = { type: 'crit', turns: 3 }; msg = `Postura de Batalha! Seus próximos 3 ataques serão críticos.`; }
+        else if(player.class === 'Desolacao'){
+            playSound('magic_desolation');
+            const dmg = Math.round((40 + state.level * 3) - enemy.defense);
+            const recoilDmg = Math.round(player.maxHp * 0.20);
+            enemy.hp = Math.max(0, enemy.hp - dmg);
+            if (!state.player.isInvincible) player.hp = Math.max(0, player.hp - recoilDmg);
+            msg = `Fúria Cega causa ${dmg} de dano! Você sofre ${recoilDmg} em recuo.`;
+            refreshUI();
+            if (checkPlayerDeath()) return;
+        }
+        else if(player.class === 'Perseveranca'){ playSound('magic_perseverance'); const heal = Math.round(player.maxHp * 0.25); player.hp = Math.min(player.maxHp, player.hp + heal); player.buff = { type: 'regen', turns: 3 }; msg = `Bálsamo Protetor curou ${heal} HP e aplicou regeneração!`; }
+        writeLog(msg);
+        state.magic.cd = state.magic.cdMax;
+        afterPlayerAction(false);
+    }, state.magic.cd <= 0);
+}
+function playerPotion() {
+    executePlayerAction(() => {
+        playSound('heal');
+        const overlay = document.getElementById('potion-overlay');
+        overlay.classList.add('active');
+        setTimeout(() => overlay.classList.remove('active'), 1500);
+        state.player.potions--;
+        const heal = 35 + (state.player.potionUpgrade * 10);
+        state.player.hp = Math.min(state.player.maxHp, state.player.hp + heal);
+        writeLog(`Você usou uma poção e recuperou ${heal} HP.`);
+        afterPlayerAction(false);
+    }, state.player.potions > 0 && state.player.hp < state.player.maxHp);
+}
+
+function buySkill(treeKey, skillKey, btnElement) {
+    const skill = skills[treeKey].skills[skillKey];
+    if (!state.player.skills[skillKey]) {
+        state.player.skills[skillKey] = { level: 0 };
+    }
+    const currentLevel = state.player.skills[skillKey].level;
+    if (state.player.skillPoints >= skill.cost && currentLevel < skill.max) {
+        state.player.skillPoints -= skill.cost;
+        state.player.skills[skillKey].level++;
+        skill.apply(state.player, state.player.skills[skillKey].level);
+        playSound('confirm_action');
+        btnElement.classList.add('purchased');
+        setTimeout(() => btnElement.classList.remove('purchased'), 500);
+    }
+    updateShopUI();
+    updateSkillUI();
+}
+
+function showPostBattleEvent() {
+    let eventToShow = storyEvents[state.level];
+    if (!eventToShow) {
+        const availableUniqueEvents = uniqueNPCEvents.filter(e => !state.player.encounteredNPCs.includes(e.id));
+        if (availableUniqueEvents.length > 0 && Math.random() < 0.4) {
+            eventToShow = availableUniqueEvents[Math.floor(Math.random() * availableUniqueEvents.length)];
+            state.player.lastUniqueEvent = eventToShow.id;
+            state.player.encounteredNPCs.push(eventToShow.id);
+        } else {
+            eventToShow = repeatableEvents[Math.floor(Math.random() * repeatableEvents.length)];
+            delete state.player.lastUniqueEvent;
+        }
+    }
+    showScreen('eventScreen');
+    showEvent(eventToShow);
+}
+
+function showEvent(event) {
+    if (!event) return;
+    updateText(uiElements.eventTitle, event.title);
+    updateText(uiElements.eventText, event.text);
+    const choicesContainer = uiElements.eventChoices;
+    choicesContainer.innerHTML = '';
+    event.choices.forEach(choice => {
+        const btn = document.createElement('button');
+        btn.className = 'btn choice-btn';
+        btn.textContent = choice.text;
+        btn.onclick = () => { playSound('click'); resolveEventChoice(choice); };
+        choicesContainer.appendChild(btn);
+    });
+}
+
+function resolveEventChoice(choice) {
+    const result = choice.cb();
+    let nextAction = goToShop;
+    let resultText = result;
+
+    if (typeof result === 'object' && result.text && result.next) {
+        resultText = result.text;
+        nextAction = result.next;
+    }
+    
+    updateText(uiElements.eventText, resultText);
+    
+    refreshUI();
+    if (checkPlayerDeath()) {
+        uiElements.eventChoices.innerHTML = ''; 
+    } else {
+        uiElements.eventChoices.innerHTML = ''; 
+        const continueBtn = document.createElement('button');
+        continueBtn.className = 'continue-btn';
+        continueBtn.textContent = 'Continuar';
+        continueBtn.onclick = nextAction;
+        uiElements.eventChoices.appendChild(continueBtn);
+    }
+}
+
+function goToShop() {
+    showTab('shopTab');
+    updateShopUI();
+    updateSkillUI();
+    showScreen('shopScreen');
+}
+function goToNextBattle() {
+    state.level++;
+    if (state.level === 30) spawnEnemy('Arcanjo30');
+    else if (state.level === 60) spawnEnemy('Arcanjo60');
+    else spawnEnemy();
+    
+    showScreen('battleScreen');
+}
+
+function tickRegenBuffs() { const { buff, skills } = state.player; let regenMsg = ''; const recoveryBonus = skills.recovery?.level || 0; if (buff.type === 'regen' && buff.turns > 0) { const regenAmt = 5 + recoveryBonus; state.player.hp = Math.min(state.player.maxHp, state.player.hp + regenAmt); regenMsg = `Você regenerou ${regenAmt} HP. `; buff.turns--; } else if (recoveryBonus > 0 && state.player.hp < state.player.maxHp) { state.player.hp = Math.min(state.player.maxHp, state.player.hp + recoveryBonus); } if(buff.turns === 0) { buff.type = null; } return regenMsg; }
+
+function afterPlayerAction(passTurn = true, wasAttack = false){
+    if (wasAttack && state.player.buff.turns > 0 && (state.player.buff.type === 'crit' || state.player.buff.type === 'damage')) {
+        state.player.buff.turns--;
+    }
+    if (state.player.buff.turns === 0) { state.player.buff.type = null; }
+    refreshUI();
+    if (checkPlayerDeath()) return;
+    saveGame();
+
+    if(state.enemy.hp <= 0){
+        if (state.enemy.nextPhase) {
+            toggleActionButtons(false);
+            writeLog(`<span style="color: var(--red);">${state.enemy.name} foi derrotado... Mas o verdadeiro mal desperta!</span>`);
+            
+            setTimeout(() => {
+                playSound('boss_transform');
+                document.getElementById('feedback-overlay').classList.add('flash-boss');
+
+                setTimeout(() => {
+                    spawnEnemy(state.enemy.nextPhase);
+                    writeLog(`<span style="color: var(--red);">${state.enemy.name} APARECEU!</span>`);
+                    toggleActionButtons(true);
+                    document.getElementById('feedback-overlay').classList.remove('flash-boss');
+                }, 1500);
+            }, 1000);
+            return;
+        }
+
+        playSound('victory');
+        const [minGold, maxGold] = state.enemy.gold;
+        const goldFinderBonus = 1 + (state.player.skills.gold_finder?.level || 0) * 0.15;
+        let goldGained = Math.floor((Math.random() * (maxGold - minGold + 1)) + minGold + state.level * 4) * goldFinderBonus;
+        state.gold += Math.round(goldGained);
+        
+        let skillPointsGained = 0;
+        switch(state.enemy.tier) {
+            case 'Fácil': skillPointsGained = 1; break;
+            case 'Médio': skillPointsGained = 2; break;
+            case 'Difícil': skillPointsGained = 3; break;
+            case 'Boss': skillPointsGained = 10; break;
+        }
+        state.player.skillPoints += skillPointsGained;
+
+        let victoryMsg = `Você derrotou ${state.enemy.name}! (+${Math.round(goldGained)} Ouro, +${skillPointsGained} Ponto(s) de Habilidade)`;
+        const scavengerBonus = (state.player.skills.scavenger?.level || 0) * 0.1;
+        if(Math.random() < scavengerBonus){ state.player.potions++; victoryMsg += " Você encontrou uma poção!"; }
+        
+        writeLog(victoryMsg);
+
+        if (state.level >= 60) { 
+            localStorage.setItem('battleGameVictory', 'true');
+            uiElements.gameOverTitle.textContent = 'Você Venceu!';
+            uiElements.gameOverTitle.style.color = 'var(--blue-light)';
+            uiElements.gameOverHint.textContent = 'TOQUE PARA UMA NOVA JORNADA';
+            uiElements.endingText.innerHTML = 'Você derrotou o mal e <span style="color: var(--blue-light)">Ascendeu</span> como o <span style="color: var(--blue-light)">Rei</span> deste reino.';
+            document.getElementById('gameOverScreen').onclick = () => enterKingdomMode(true);
+            showScreen('gameOverScreen', false); 
+            return; 
+        }
+        
+        setTimeout(() => showPostBattleEvent(), 1500);
+        return;
+    }
+    if (passTurn) { setTimeout(()=> enemyTurn(), 800); } else { toggleActionButtons(true); }
+}
+function enemyTurn(){
+    let regenMsg = tickRegenBuffs();
+    if (checkPlayerDeath()) return;
+    let dmg = state.enemy.dmg + Math.floor(Math.random()*5);
+    const defenseBonus = state.player.buff.type === 'defense' ? 5 + state.player.armorUpgrade : 0; let finalDmg = Math.max(1, dmg - (state.player.defense + defenseBonus)); let attackMsg = `O inimigo atacou e causou ${finalDmg} de dano.`;
+    if(state.enemy.isRaged) { finalDmg = Math.round(finalDmg * 1.5); attackMsg = `Em FÚRIA, o inimigo causou ${finalDmg} de dano!`; state.enemy.isRaged = false; }
+    
+    if(isShielding){
+        state.player.shield--;
+        attackMsg = 'O inimigo atacou — você bloqueou!';
+        isShielding = false;
+    } else {
+        if (state.player.hp - finalDmg <= 0 && state.player.skills.last_stand?.level && !hasUsedLastStand) {
+            hasUsedLastStand = true;
+            state.player.hp = 1;
+            attackMsg = "Último Recurso! Você sobreviveu ao golpe fatal com 1 HP!";
+        } else {
+            if (!state.player.isInvincible) {
+                state.player.hp -= finalDmg;
+                playSound('player_hit');
+                const appContainer = document.getElementById('appContainer');
+                const overlay = document.getElementById('damage-overlay');
+                appContainer.classList.add('shake-app');
+                overlay.classList.add('flash-active');
+                setTimeout(() => { appContainer.classList.remove('shake-app'); overlay.classList.remove('flash-active'); }, 500);
+            } else {
+                attackMsg = "O inimigo atacou, mas seu poder não arranhou você!";
+            }
+        }
+    }
+    setTimeout(() => writeLog(regenMsg + attackMsg), 500);
+    if(state.magic.cd > 0) state.magic.cd--;
+    refreshUI();
+    if (checkPlayerDeath()) return;
+    saveGame();
+    setTimeout(() => toggleActionButtons(true), 700);
+}
+function restartGame() {
+    playSound('game_start');
+    clearSave();
+    localStorage.removeItem('battleGameVictory');
+    state = deepCopy(initialState);
+    resetClassSelection();
+    uiElements.endingText.textContent = "";
+    uiElements.gameOverTitle.style.color = 'var(--red)';
+    uiElements.mainMenuTitle.textContent = 'Battle Game';
+    uiElements.mainMenuTitle.style.color = 'var(--red)';
+    checkForSave();
+    showScreen('menuScreen', false);
+}
+
+function enterKingdomMode(setFlag) {
+    if(setFlag) localStorage.setItem('battleGameVictory', 'true');
+    const mainMenuTitle = uiElements.mainMenuTitle;
+    mainMenuTitle.textContent = 'Battle Kingdom';
+    mainMenuTitle.style.color = 'var(--blue-light)';
+    
+    document.getElementById('menuScreen').onclick = (event) => {
+        initAudio();
+        if (event.target.closest('.top-left-info')) {
+            openCodeModal();
+        } else {
+            showScreen('comingSoonScreen', false);
+        }
+    };
+    clearSave();
+    showScreen('menuScreen', false);
+}
+
+function openCodeModal() {
+    playSound('click');
+    const overlay = document.getElementById('codeOverlay');
+    document.getElementById('codeInput').value = '';
+    document.getElementById('codeError').style.display = 'none';
+    overlay.style.display = 'flex';
+}
+function closeCodeModal() { document.getElementById('codeOverlay').style.display = 'none'; }
+function flashScreen(color) {
+    const overlay = document.getElementById('feedback-overlay');
+    overlay.classList.remove('flash-green', 'flash-boss');
+    if (color === 'green') {
+        overlay.classList.add('flash-green');
+    } else {
+        overlay.classList.add('flash-active');
+    }
+    setTimeout(() => overlay.classList.remove('flash-green', 'flash-active'), 500);
+}
+function submitCode() {
+    const input = document.getElementById('codeInput');
+    const error = document.getElementById('codeError');
+    const code = input.value.toUpperCase();
+    let successMessage = '';
+    
+    switch(code) {
+        case 'ILIYABOTINVNCVL':
+            state.player.isInvincible = true;
+            successMessage = 'INVENCIBILIDADE ATIVADA!';
+            break;
+        case 'ILIYABOTHTKLL':
+            state.player.hasHitKill = true;
+            successMessage = 'HIT KILL ATIVADO!';
+            break;
+        case 'ILIYABOTRSTR':
+            state.player.isInvincible = false;
+            state.player.hasHitKill = false;
+            successMessage = 'CÓDIGOS RESETADOS!';
+            break;
+    }
+
+    if (successMessage) {
+        playSound('code_success');
+        saveGame();
+        refreshUI();
+        error.textContent = successMessage;
+        error.style.color = 'var(--green-light)';
+        error.style.display = 'block';
+        setTimeout(() => {
+            closeCodeModal();
+            if (code === 'ILIYABOTRSTR') {
+                setTimeout(() => {
+                    clearSave();
+                    localStorage.removeItem('battleGameVictory');
+                    location.reload();
+                }, 200);
+            }
+        }, 1500);
+    } else {
+        playSound('code_error');
+        error.textContent = 'Código inválido!';
+        error.style.color = 'var(--red)';
+        error.style.display = 'block';
+    }
+}
+
+// ALTERAÇÃO: Nova função para centralizar todos os event listeners
+function bindEventListeners() {
     const menuScreen = document.getElementById('menuScreen');
     menuScreen.addEventListener('click', (event) => {
-        initSfxAudio();
-        if (event.target.closest('.top-left-info')) { openCodeModal(); return; } 
-        if (localStorage.getItem('battleGameVictory')) { showScreen('comingSoonScreen', false); return; }
+        initAudio(); // Ação mais importante: Inicia o áudio no primeiro clique do usuário
+
+        if (event.target.closest('.top-left-info')) {
+            openCodeModal();
+            return;
+        } 
+        
+        if (localStorage.getItem('battleGameVictory')) {
+            showScreen('comingSoonScreen', false);
+            return;
+        }
+
         playSound('game_start');
         if (localStorage.getItem('battleGameSave') && loadGame()) {
-            if (state.currentScreen === 'menuScreen') { showScreen('classScreen'); } 
-            else { continueGame(); }
-        } else { showScreen('classScreen'); }
+            if (state.currentScreen === 'menuScreen') {
+                showScreen('classScreen');
+            } else {
+                continueGame();
+            }
+        } else {
+            showScreen('classScreen');
+        }
     });
-    checkForSave();
-    musicController.play('theme');
+
+    // Botões de classe
+    uiElements.classButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            previewClass(btn.dataset.className, btn.dataset.classColor, btn);
+            playSound('select_class');
+        });
+    });
+    uiElements.confirmClassBtn.addEventListener('click', confirmClass);
+
+    // Controles de batalha
+    uiElements.atkBtn.addEventListener('click', playerAttack);
+    uiElements.shieldBtn.addEventListener('click', playerShield);
+    uiElements.potionBtn.addEventListener('click', playerPotion);
+    uiElements.magicBtn.addEventListener('click', playerMagic);
+
+    // Tabs da loja
+    uiElements.shopTabBtn.addEventListener('click', () => { showTab('shopTab'); playSound('click'); });
+    uiElements.skillTabBtn.addEventListener('click', () => { showTab('skillTab'); playSound('click'); });
+
+    // Botões da loja
+    uiElements.shopButtons.potion.addEventListener('click', (e) => buyItem('potion', e.currentTarget));
+    uiElements.shopButtons.shield.addEventListener('click', (e) => buyItem('shield', e.currentTarget));
+    uiElements.shopButtons.upgrade.addEventListener('click', (e) => buyItem('upgrade', e.currentTarget));
+    uiElements.shopButtons.armor.addEventListener('click', (e) => buyItem('armor', e.currentTarget));
+    uiElements.shopButtons.maxShield.addEventListener('click', (e) => buyItem('maxShield', e.currentTarget));
+    uiElements.shopButtons.potionUpgrade.addEventListener('click', (e) => buyItem('potionUpgrade', e.currentTarget));
+    
+    // Botão de continuar
+    uiElements.nextFloorBtn.addEventListener('click', goToNextBattle);
+    
+    // Modal de código
+    uiElements.closeCodeBtn.addEventListener('click', closeCodeModal);
+    uiElements.confirmCodeBtn.addEventListener('click', submitCode);
 }
+
+document.addEventListener('DOMContentLoaded', ()=> {
+    cacheDOMElements(); 
+    bindEventListeners(); // ALTERAÇÃO: Chama a nova função centralizada
+    setBodyBackground('menuScreen');
+
+    const userLang = navigator.language || navigator.userLanguage; 
+    if (userLang.startsWith('pt')) {
+        document.documentElement.lang = 'pt-BR';
+    } else {
+        document.documentElement.lang = 'en';
+    }
+
+    document.documentElement.classList.add('no-scroll');
+    document.body.classList.add('no-scroll');
+    
+    // ALTERAÇÃO: A lógica de clique inicial foi movida para bindEventListeners
+    // para garantir que o áudio seja iniciado corretamente.
+    
+    checkForSave();
+    musicController.play('theme'); // A música só vai tocar de fato após o primeiro clique
+});
 
 </script>
 </body>
